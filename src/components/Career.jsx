@@ -28,6 +28,7 @@ const careers = [
     gradient: "from-indigo-300 via-blue-500 to-purple-600",
   },
 ];
+// "w-full md:basis-[48%] max-w-[300px] max-h-fit flex-shrink-0 transition-transform duration-300",
 
 const Career = () => {
   return (
@@ -60,7 +61,7 @@ const Career = () => {
                   key={index}
                   className={clsx(
                     "bg-[#121212] border border-white/10 rounded-3xl p-8",
-                    "w-full md:basis-[48%] max-w-[300px] max-h-fit flex-shrink-0 transition-transform duration-300",
+                    "w-[300px] flex-shrink-0 transition-transform duration-300",
                     {
                       "hover:-rotate-6": isRight,
                       "hover:rotate-6": !isRight,
