@@ -60,7 +60,7 @@ const Career = () => {
                   key={index}
                   className={clsx(
                     "bg-[#121212] border border-white/10 rounded-3xl p-8",
-                    "w-full md:w-[48%] max-w-[300px] max-h-fit flex-shrink-0 transition-transform duration-300",
+                    "w-full md:basis-[48%] max-w-[300px] max-h-fit flex-shrink-0 transition-transform duration-300",
                     {
                       "hover:-rotate-6": isRight,
                       "hover:rotate-6": !isRight,
