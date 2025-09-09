@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rien-zi.irisaut.space/sitemap.xml

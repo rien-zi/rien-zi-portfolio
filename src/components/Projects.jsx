@@ -86,6 +86,7 @@ const Projects = () => {
               <button
                 onClick={() => scrollByAmount(-300)}
                 className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/60 backdrop-blur border border-white/10 text-white p-2 rounded-full hover:bg-black"
+                aria-label="Scroll projects to left"
               >
                 <FaChevronLeft />
               </button>
@@ -107,7 +108,10 @@ const Projects = () => {
                   <p className="text-sm font-body text-gray-500 mb-4">
                     {project.description}
                   </p>
-                  <button className="mt-auto inline-block px-4 py-2 text-sm border-red-400 md:border-red-400/20 md:hover:border-red-400 text-red-400 md:text-red-400/40 rounded-full hover:opacity-90">
+                  <button
+                    className="mt-auto inline-block px-4 py-2 text-sm border-red-400 md:border-red-400/20 md:hover:border-red-400 text-red-400 md:text-red-400/40 rounded-full hover:opacity-90"
+                    aria-label="View more about the project"
+                  >
                     View More
                   </button>
                 </div>
@@ -118,6 +122,7 @@ const Projects = () => {
               <button
                 onClick={() => scrollByAmount(300)}
                 className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/60 backdrop-blur border border-white/10 text-white p-2 rounded-full hover:bg-black"
+                aria-label="Scroll projects to right"
               >
                 <FaChevronRight />
               </button>
