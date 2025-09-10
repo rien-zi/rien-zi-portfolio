@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-rienzi-dev-2eca8-authRole",
+      "UnauthRoleArn": "arn:aws:iam::898111449922:role/amplify-rienzi-dev-2eca8-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::898111449922:role/amplify-rienzi-dev-2eca8-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-rienzi-dev-2eca8-deployment",
+      "UnauthRoleName": "amplify-rienzi-dev-2eca8-unauthRole",
+      "StackName": "amplify-rienzi-dev-2eca8",
+      "StackId": "arn:aws:cloudformation:ap-south-1:898111449922:stack/amplify-rienzi-dev-2eca8/80173870-8e62-11f0-a5f0-024182c08517",
+      "AmplifyAppId": "d27537432dvor7"
+    },
+    "categories": {
+      "function": {
+        "contactProxy": {
+          "deploymentBucketName": "amplify-rienzi-dev-2eca8-deployment",
+          "s3Key": "amplify-builds/contactProxy-52514f534c4e79414e6a-build.zip"
+        }
+      },
+      "api": {
+        "contactApi": {}
+      }
+    }
+  }
+}

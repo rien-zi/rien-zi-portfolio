@@ -2,30 +2,49 @@ import React, { useState } from "react";
 import FadeSlideIn from "./FadeSlideIn";
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+    honeypot: "",
+  });
   const [status, setStatus] = useState("idle"); // idle | submitting | success | error
+  const [copied, setCopied] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const handleCopy = () => {
+    navigator.clipboard.writeText("renzil.digispec@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // honeypot check
+    if (form.honeypot) {
+      setStatus("success");
+      return;
+    }
+
     setStatus("submitting");
 
     try {
-      const res = await fetch("https://irisaut.space/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
       });
 
       if (res.ok) {
         setStatus("success");
-        setForm({ name: "", email: "", message: "" });
-
+        setForm({ name: "", email: "", message: "", honeypot: "" });
         setTimeout(() => setStatus("idle"), 5000);
       } else {
         setStatus("error");
@@ -48,6 +67,17 @@ const Contact = () => {
         </FadeSlideIn>
 
         <form onSubmit={handleSubmit} className="space-y-6 text-sm font-body">
+          {/* honeypot hidden field */}
+          <input
+            type="text"
+            name="honeypot"
+            value={form.honeypot}
+            onChange={handleChange}
+            style={{ display: "none" }}
+            tabIndex="-1"
+            autoComplete="off"
+          />
+
           <FadeSlideIn direction="left" delay={0.05}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <input
@@ -97,37 +127,42 @@ const Contact = () => {
             `}
             >
               {status === "submitting" && (
-                <svg
-                  className="animate-spin h-4 w-4 mr-2 text-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  ></circle>
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                  ></path>
-                </svg>
+                <>
+                  <svg
+                    className="animate-spin h-4 w-4 mr-2 text-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    ></path>
+                  </svg>
+                  Submitting...
+                </>
               )}
+
               {status === "success" && "Thank You for showing Interest!"}
               {status === "error" && (
-                <span>
-                  Currently unavailable,&nbsp;
-                  <a
-                    href="mailto:renzil.digispec@gmail.com"
-                    className="underline underline-offset-2"
+                <span className="flex flex-col items-center">
+                  <span className="mb-2">Form unavailable.</span>
+                  <button
+                    type="button"
+                    onClick={handleCopy}
+                    className="px-3 py-1 bg-white text-black rounded hover:opacity-80"
                   >
-                    please send email
-                  </a>
+                    {copied ? "Copied!" : "Copy Email"}
+                  </button>
                 </span>
               )}
               {status === "idle" && "Submit"}
