@@ -15,7 +15,7 @@
       "function": {
         "contactProxy": {
           "deploymentBucketName": "amplify-rienzi-dev-2eca8-deployment",
-          "s3Key": "amplify-builds/contactProxy-4d736c7a766146574769-build.zip"
+          "s3Key": "amplify-builds/contactProxy-6a473638484c71647058-build.zip"
         }
       },
       "api": {
