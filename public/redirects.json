@@ -1,0 +1,17 @@
+[
+    {
+        "source": "/api/contact",
+        "target": "https://3rgs9grsrj.execute-api.ap-south-1.amazonaws.com/dev/contact",
+        "status": "200"
+    },
+    {
+        "source": "/api/<*>",
+        "target": "https://3rgs9grsrj.execute-api.ap-south-1.amazonaws.com/dev/<*>",
+        "status": "200"
+    },
+    {
+        "source": "/<*>",
+        "target": "/index.html",
+        "status": "200"
+    }
+]
