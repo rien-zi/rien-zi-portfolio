@@ -1,37 +1,46 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import Career from "./components/Career";
-import Contact from "./components/Contact";
+import Navbar from "./components/navbar/Navbar";
+import Hero from "./components/hero/Hero";
+import Projects from "./components/projects/Projects";
+import Skills from "./components/skills/Skills";
+import Career from "./components/career/Career";
+import Contact from "./components/contact/Contact";
+import NetworkCanvas from "./components/rss/NetworkCanvas";
 
 function App() {
   return (
-    <div className="scroll-smooth">
-      <Navbar />
-      <main>
-        <section id="hero">
-          <Hero />
-        </section>
+    <div className="relative scroll-smooth">
+      {/* 🌐 GLOBAL MESH */}
+      <div className="fixed inset-0 z-0">
+        <NetworkCanvas />
+      </div>
 
-        {/* Placeholder for next sections */}
-        <section id="projects" className="min-h-screen p-10">
-          <Projects />
-        </section>
+      {/* 🧱 CONTENT */}
+      <div className="relative z-10">
+        <Navbar />
+        <main>
+          <section id="hero">
+            <Hero />
+          </section>
 
-        <section id="skills" className="min-h-screen p-10">
-          <Skills />
-        </section>
+          {/* Placeholder for next sections */}
+          <section id="projects" className="min-h-screen p-10">
+            <Projects />
+          </section>
 
-        <section id="career" className="min-h-screen p-10">
-          <Career />
-        </section>
+          <section id="skills" className="min-h-screen p-10">
+            <Skills />
+          </section>
 
-        <section id="contact" className="min-h-screen p-10">
-          <Contact />
-        </section>
-      </main>
+          <section id="career" className="min-h-screen p-10">
+            <Career />
+          </section>
+
+          <section id="contact" className="min-h-screen p-10">
+            <Contact />
+          </section>
+        </main>
+      </div>
     </div>
   );
 }
