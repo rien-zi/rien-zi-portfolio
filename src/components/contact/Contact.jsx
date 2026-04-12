@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FadeSlideIn from "../rss/FadeSlideIn";
+import { supabase } from "../../lib/supabase";
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -33,27 +34,23 @@ const Contact = () => {
     setStatus("submitting");
 
     try {
-      const res = await fetch(
-        "https://3rgs9grsrj.execute-api.ap-south-1.amazonaws.com/dev/contact",
+      const { error } = await supabase.from("contact_messages").insert([
         {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: form.name,
-            email: form.email,
-            message: form.message,
-          }),
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          source: "portfolio",
         },
-      );
+      ]);
 
-      if (res.ok) {
-        setStatus("success");
-        setForm({ name: "", email: "", message: "", honeypot: "" });
-        setTimeout(() => setStatus("idle"), 5000);
-      } else {
-        setStatus("error");
-      }
+      if (error) throw error;
+
+      setStatus("success");
+      setForm({ name: "", email: "", message: "", honeypot: "" });
+
+      setTimeout(() => setStatus("idle"), 5000);
     } catch (err) {
+      console.error("Supabase Insert Error:", err);
       setStatus("error");
     }
   };

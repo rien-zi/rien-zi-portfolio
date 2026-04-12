@@ -6,6 +6,7 @@ export default function CustomCursor() {
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+    if (window.innerWidth < 768) return;
     const move = (e) => {
       setPos({ x: e.clientX, y: e.clientY });
     };
@@ -14,7 +15,8 @@ export default function CustomCursor() {
     return () => window.removeEventListener("mousemove", move);
   }, []);
 
-  // ❌ Disable completely if no label
+  // ❌ Disable on mobile OR if no label
+  if (typeof window !== "undefined" && window.innerWidth < 768) return null;
   if (!cursor.label) return null;
 
   return (

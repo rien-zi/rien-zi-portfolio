@@ -4,6 +4,7 @@ const NetworkCanvas = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    if (window.innerWidth < 768) return;
     const canvas = canvasRef.current;
     const gl = canvas.getContext("webgl");
 

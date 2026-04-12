@@ -11,6 +11,8 @@ import Anomaly from "./components/projects/cs/Anomaly.jsx";
 import Escalation from "./components/projects/cs/Escalation.jsx";
 import Training from "./components/projects/cs/Training.jsx";
 
+import Vault from "./components/vault/Vault.jsx";
+
 import { CursorProvider } from "./components/cursor/CursorContext";
 import CustomCursor from "./components/cursor/CustomCursor";
 import CursorLayer from "./components/cursor/CursorLayer";
@@ -37,6 +39,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/projects/cs/anomaly" element={<Anomaly />} />
           <Route path="/projects/cs/escalation" element={<Escalation />} />
           <Route path="/projects/cs/training" element={<Training />} />
+          <Route path="/vault" element={<Vault />} />
         </Routes>
       </BrowserRouter>
     </CursorProvider>
