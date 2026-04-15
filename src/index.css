@@ -53,6 +53,8 @@
   --accent-soft: rgba(99, 102, 241, 0.12);
   --accent-2-soft: rgba(139, 92, 246, 0.12);
 
+  --accent-border: rgba(99, 102, 241, 0.5);
+  
 
   /* Feedback */
   --success: #22c55e;
@@ -117,6 +119,8 @@
   --accent-2: #7c3aed; /* violet */
   --accent-2-soft: rgba(124, 58, 237, 0.12);
 
+  --accent-border: rgba(37, 99, 235, 0.5);  
+
   --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
 
   --effect-primary: rgba(37, 99, 235, 0.55);
@@ -149,6 +153,8 @@
   --accent-2: #22d3ee; /* cyan */
   --accent-2-soft: rgba(34, 211, 238, 0.15);
 
+  --accent-border: rgba(56, 189, 248, 0.5);
+
   --effect-primary: rgba(56, 189, 248, 0.4);
   --effect-secondary: rgba(34, 211, 238, 0.3);
   --effect-highlight: rgba(255, 255, 255, 0.35);
@@ -177,6 +183,8 @@
   --accent: #b58900;
   --accent-2: #cb4b16; /* orange */
   --accent-2-soft: rgba(203, 75, 22, 0.18);
+  
+  --accent-border: rgba(181, 137, 0, 0.5);
 }
 
 /* =========================
@@ -198,6 +206,8 @@
   --accent: #ff00ff;
   --accent-2: #00ffff; /* electric cyan */
   --accent-2-soft: rgba(0, 255, 255, 0.2);
+
+  --accent-border: rgba(255, 0, 255, 0.5);
 
   --shadow-md: 2px 2px 0px 0px rgba(5, 5, 5, 0.8);
 }
@@ -221,6 +231,9 @@
   --accent: #ff79c6;
   --accent-2: #50fa7b; /* neon green */
   --accent-2-soft: rgba(80, 250, 123, 0.18);
+
+  --accent-border: rgba(255, 121, 198, 0.5);
+
 }
 
 /* =========================
@@ -316,12 +329,6 @@ html {
 /* =========================
    Vault Classes
 ========================= */
-.ui-panel {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-primary);
-  border-radius: var(--radius-md);
-}
-
 .ui-input {
   background: var(--bg-tertiary);
   border: 1px solid var(--border-primary);
@@ -402,4 +409,56 @@ html {
   backdrop-filter: blur(20px);
 
   border: 1px solid var(--border-primary);
+}
+
+
+
+/* Hover blob */
+.blob {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--accent), transparent 40%);
+  filter: blur(70px);
+  border-radius: 50%;
+
+  top: 0;
+  left: 0;
+
+  transition: opacity 0.25s ease;
+  will-change: transform;
+}
+
+@keyframes blobMove {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(120px, 80px) scale(1.2);
+  }
+  100% {
+    transform: translate(60px, 140px) scale(0.9);
+  }
+}
+
+
+
+.floating-icon {
+  transform: translate(-50%, -50%);
+  animation: floatDrift 6s ease-in-out infinite;
+  filter: blur(0.3px);
+  transition: opacity 0.5s ease;
+
+}
+
+@keyframes floatDrift {
+  0% {
+    transform: translate(-50%, -50%) translateY(0px) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-20px) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0px) scale(1);
+  }
 }

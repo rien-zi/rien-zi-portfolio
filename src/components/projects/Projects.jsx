@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import FadeSlideIn from "../rss/FadeSlideIn";
 import StaggerContainer from "../rss/StaggerContainer";
@@ -41,22 +41,13 @@ const Projects = () => {
     <section id="projects" className="relative py-20">
       <div className="max-w-[1200px] mx-auto px-4 font-accent">
         <StaggerContainer>
-          {/* TITLE */}
           <FadeSlideIn direction="fade">
             <h2 className="font-logo text-3xl md:text-5xl text-center text-[var(--text-subtle)] mb-16">
               Selected Work
             </h2>
           </FadeSlideIn>
 
-          {/* ✅ TRUE BENTO GRID */}
-          <div
-            className="
-              grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 
-              md:grid-rows-[auto_auto] 
-              gap-6
-            "
-          >
-            {/* BIG TOP LEFT */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:grid-rows-[auto_auto] gap-6">
             <div
               data-cursor="Click to Know More"
               className="md:col-start-1 md:col-span-3 md:row-start-1"
@@ -70,7 +61,6 @@ const Projects = () => {
               </FadeSlideIn>
             </div>
 
-            {/* SMALL TOP RIGHT */}
             <div
               data-cursor="Click to Know More"
               className="md:col-start-4 md:row-start-1"
@@ -84,7 +74,6 @@ const Projects = () => {
               </FadeSlideIn>
             </div>
 
-            {/* SMALL BOTTOM LEFT */}
             <div
               data-cursor="Click to Know More"
               className="md:col-start-1 md:row-start-2"
@@ -98,7 +87,6 @@ const Projects = () => {
               </FadeSlideIn>
             </div>
 
-            {/* BIG BOTTOM RIGHT */}
             <div
               data-cursor="Click to Know More"
               className="md:col-start-2 md:col-span-3 md:row-start-2"
@@ -119,15 +107,56 @@ const Projects = () => {
 };
 
 /* =========================
-   BENTO CARD
+   BENTO CARD (UPDATED)
 ========================= */
 
 const BentoCard = ({ project, active, onClick, className }) => {
+  const blobRef = useRef(null);
+
+  const target = useRef({ x: 0, y: 0 });
+  const current = useRef({ x: 0, y: 0 });
+
+  const rafRef = useRef(null);
+
+  // 🔁 animation loop
+  const animate = () => {
+    // easing (lerp)
+    current.current.x += (target.current.x - current.current.x) * 0.08;
+    current.current.y += (target.current.y - current.current.y) * 0.08;
+
+    if (blobRef.current) {
+      blobRef.current.style.transform = `translate(${current.current.x - 100}px, ${current.current.y - 100}px)`;
+    }
+
+    rafRef.current = requestAnimationFrame(animate);
+  };
+
+  useEffect(() => {
+    rafRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+
+    target.current.x = e.clientX - rect.left;
+    target.current.y = e.clientY - rect.top;
+  };
+
+  const handleMouseLeave = () => {
+    // move blob out smoothly instead of snapping
+    target.current.x = -200;
+    target.current.y = -200;
+  };
+
   return (
     <div
       onClick={onClick}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className={`
-        relative cursor-pointer h-full w-full
+        group relative overflow-hidden
+        cursor-pointer h-full w-full
         rounded-[28px]
 
         bg-white/5 backdrop-blur-xl
@@ -141,60 +170,69 @@ const BentoCard = ({ project, active, onClick, className }) => {
 
         transition-all duration-300
         hover:scale-[1.02]
+        hover:border-[var(--accent-border)]
 
         ${className}
         ${active ? "ring-1 ring-white/20" : ""}
       `}
     >
-      {/* CONTENT */}
-      <div>
-        <h3 className="text-xl md:text-2xl font-semibold text-[var(--text-primary)] mb-2">
-          {project.title}
-        </h3>
-
-        <p className="text-sm text-[var(--accent)] mb-3">{project.subtitle}</p>
-
-        <p
-          className={`
-            text-sm text-[var(--text-muted)]
-            transition-all duration-300
-            ${active ? "opacity-100" : "opacity-60 line-clamp-2"}
-          `}
-        >
-          {project.description}
-        </p>
+      {/* 🔵 GPU BLOB */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div ref={blobRef} className="blob opacity-0 group-hover:opacity-100" />
       </div>
 
-      {/* CTA */}
-      <div
-        className={`
-          mt-4 transition-all duration-300
-          ${
-            active
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-4 pointer-events-none"
-          }
-        `}
-      >
-        <Link
-          to={project.link}
-          onClick={(e) => e.stopPropagation()}
-          data-cursor="Know More"
-          data-cursor-variant="pill2"
-          className="
-            block w-full text-center
-            px-5 py-3
-            rounded-[20px]
-            bg-[var(--accent)]
-            text-[var(--text-dark-btn)] text-sm font-medium
-            shadow-[0_8px_25px_rgba(0,0,0,0.3)]
-            hover:scale-[1.03]
-            hover:text-[var(--text-dark-btn)]
-            transition
-          "
+      {/* CONTENT */}
+      <div className="relative z-10">
+        <div>
+          <h3 className="text-xl md:text-2xl font-semibold text-[var(--text-primary)] mb-2">
+            {project.title}
+          </h3>
+
+          <p className="text-sm text-[var(--accent)] mb-3">
+            {project.subtitle}
+          </p>
+
+          <p
+            className={`
+              text-sm text-[var(--text-muted)]
+              transition-all duration-300
+              ${active ? "opacity-100" : "opacity-60 line-clamp-2"}
+            `}
+          >
+            {project.description}
+          </p>
+        </div>
+
+        <div
+          className={`
+            mt-4 transition-all duration-300
+            ${
+              active
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4 pointer-events-none"
+            }
+          `}
         >
-          Explore →
-        </Link>
+          <Link
+            to={project.link}
+            onClick={(e) => e.stopPropagation()}
+            data-cursor="Know More"
+            data-cursor-variant="pill2"
+            className="
+              block w-full text-center
+              px-5 py-3
+              rounded-[20px]
+              bg-[var(--accent)]
+              text-[var(--text-dark-btn)] text-sm font-medium
+              shadow-[0_8px_25px_rgba(0,0,0,0.3)]
+              hover:scale-[1.03]
+              hover:text-[var(--text-dark-btn)]
+              transition
+            "
+          >
+            Explore →
+          </Link>
+        </div>
       </div>
     </div>
   );

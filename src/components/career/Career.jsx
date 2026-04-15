@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FadeSlideIn from "../rss/FadeSlideIn";
+import { sceneConfig } from "../../config/sceneConfig";
+import FloatingIconsScene from "../rss/FloatingIconsScene";
 
 /* -------------------- DATA -------------------- */
 const careers = [
@@ -37,7 +39,10 @@ const cursorLabels = [
   "🌱 Beginning",
 ];
 
+const cursorIcons = ["🚀", "🧠", "⚙️", "🌱"];
+
 const Career = () => {
+  const [scrollY, setScrollY] = useState(0);
   const [active, setActive] = useState(0);
   const [progress, setProgress] = useState(0);
 
@@ -64,6 +69,7 @@ const Career = () => {
 
       const total = document.documentElement.scrollHeight - window.innerHeight;
       setProgress((window.scrollY / total) * 100);
+      setScrollY(window.scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -74,6 +80,23 @@ const Career = () => {
 
   return (
     <section id="career" className="py-32 px-4 relative">
+      {/* CENTER FADE MASK */}
+      <div
+        className="pointer-events-none absolute inset-0 z-5"
+        style={{
+          background:
+            "linear-gradient(to right, transparent 0%, rgba(15,16,16,0.9) 35%, rgba(15,16,16,0.9) 65%, transparent 100%)",
+        }}
+      />
+
+      <div className="pointer-events-none absolute inset-0 overflow-hidden z-0">
+        <FloatingIconsScene
+          icons={[cursorIcons[active]]}
+          scrollY={scrollY}
+          {...sceneConfig.career}
+        />
+      </div>
+
       <div className="max-w-[800px] mx-auto space-y-32">
         <FadeSlideIn direction="fade">
           <h2 className="text-3xl md:text-5xl text-[var(--text-subtle)] font-logo text-center mb-20">
