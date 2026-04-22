@@ -1,4 +1,10 @@
-import { motion } from "framer-motion";
+import React, { Suspense } from "react";
+
+const MotionDiv = React.lazy(() =>
+  import("framer-motion").then((mod) => ({
+    default: mod.motion.div,
+  })),
+);
 
 const FadeSlideIn = ({ children, direction = "up", distance = 60 }) => {
   const getHidden = () => {
@@ -21,26 +27,28 @@ const FadeSlideIn = ({ children, direction = "up", distance = 60 }) => {
   };
 
   return (
-    <motion.div
-      style={{ willChange: "transform, opacity", height: "100%" }}
-      className="h-full"
-      variants={{
-        hidden: getHidden(),
-        visible: {
-          x: 0,
-          y: 0,
-          scale: 1,
-          opacity: 1,
-          transition: {
-            type: "spring",
-            stiffness: 110,
-            damping: 14,
+    <Suspense fallback={<div style={{ height: "100%" }} />}>
+      <MotionDiv
+        style={{ willChange: "transform, opacity", height: "100%" }}
+        className="h-full"
+        variants={{
+          hidden: getHidden(),
+          visible: {
+            x: 0,
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            transition: {
+              type: "spring",
+              stiffness: 110,
+              damping: 14,
+            },
           },
-        },
-      }}
-    >
-      {children}
-    </motion.div>
+        }}
+      >
+        {children}
+      </MotionDiv>
+    </Suspense>
   );
 };
 

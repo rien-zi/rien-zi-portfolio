@@ -1,14 +1,15 @@
 import React from "react";
 import FocusLock from "react-focus-lock";
+import { Link } from "react-router-dom";
 
 const NavMenu = ({ open, onClose }) => {
   if (!open) return null;
 
   const links = [
-    ["#projects", "My Projects"],
-    ["#skills", "Skills & Stacks"],
-    ["#career", "Career Journey"],
-    ["#contact", "Contact Me"],
+    ["/projects", "My Projects"],
+    ["/skills", "Skills & Stacks"],
+    ["/career", "Career Journey"],
+    ["/contact", "Contact Me"],
   ];
 
   return (
@@ -19,10 +20,10 @@ const NavMenu = ({ open, onClose }) => {
         border border-[var(--border-primary)]
         shadow-[var(--shadow-md)]"
       >
-        {links.map(([href, label]) => (
-          <a
-            key={href}
-            href={href}
+        {links.map(([to, label]) => (
+          <Link
+            key={to}
+            to={to}
             onClick={onClose}
             className="block px-4 py-2 transition
             text-[var(--text-primary)]
@@ -30,7 +31,7 @@ const NavMenu = ({ open, onClose }) => {
             hover:text-[var(--accent)]"
           >
             {label}
-          </a>
+          </Link>
         ))}
       </div>
     </FocusLock>

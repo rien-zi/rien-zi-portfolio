@@ -4,6 +4,7 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaBars } from "react-icons/fa";
 import ThemeSwitcher from "./ThemeSwitcher";
 import NavMenu from "./NavMenu";
 import { useTheme } from "./useTheme";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [showBorder, setShowBorder] = useState(false);
@@ -32,15 +33,15 @@ const Navbar = () => {
       `}
       >
         {/* Logo */}
-        <a
-          href="#hero"
+        <Link
+          to="/"
           className="text-xl font-logo tracking-wide transition
           text-[var(--text-primary)]
           hover:text-[var(--accent)]
           hover:scale-110"
         >
           rien–zi
-        </a>
+        </Link>
 
         {/* Right */}
         <div className="flex items-center space-x-4 text-lg text-[var(--text-primary)]">

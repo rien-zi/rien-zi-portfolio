@@ -82,6 +82,11 @@
 
   --gold: #FFD700;
 
+  --particles1: #6366f1;   /* indigo */
+  --particles2: #8b5cf6;   /* violet */
+  --particles3: #a5b4fc;   /* soft indigo */
+  --particles4: #e5e7eb;   /* neutral light */
+
   /* Apply */
   color: var(--text-primary);
   background-color: var(--bg-primary);
@@ -127,6 +132,11 @@
   --effect-secondary: rgba(124, 58, 237, 0.6);
   --effect-highlight: rgba(0, 0, 0, 0.35);
 
+  --particles1: #2563eb;   /* blue */
+  --particles2: #7c3aed;   /* violet */
+  --particles3: #93c5fd;   /* soft blue */
+  --particles4: #0f172a;   /* dark contrast */
+
   color-scheme: light;
 }
 
@@ -158,6 +168,12 @@
   --effect-primary: rgba(56, 189, 248, 0.4);
   --effect-secondary: rgba(34, 211, 238, 0.3);
   --effect-highlight: rgba(255, 255, 255, 0.35);
+
+  --particles1: #38bdf8;   /* sky blue */
+  --particles2: #22d3ee;   /* cyan */
+  --particles3: #67e8f9;   /* soft aqua */
+  --particles4: #e0f2fe;   /* ice white */
+
 }
 
 [data-theme="aurora"] body {
@@ -185,6 +201,13 @@
   --accent-2-soft: rgba(203, 75, 22, 0.18);
   
   --accent-border: rgba(181, 137, 0, 0.5);
+
+  --particles1: #b58900;   /* gold */
+  --particles2: #cb4b16;   /* orange */
+  --particles3: #facc15;   /* bright gold */
+  --particles4: #eee8d5;   /* warm white */
+
+
 }
 
 /* =========================
@@ -210,6 +233,12 @@
   --accent-border: rgba(255, 0, 255, 0.5);
 
   --shadow-md: 2px 2px 0px 0px rgba(5, 5, 5, 0.8);
+
+  --particles1: #39ff14;   /* neon green */
+  --particles2: #00ffff;   /* cyan */
+  --particles3: #ff00ff;   /* magenta */
+  --particles4: #ffffff;   /* sharp white */
+
 }
 
 /* =========================
@@ -233,6 +262,11 @@
   --accent-2-soft: rgba(80, 250, 123, 0.18);
 
   --accent-border: rgba(255, 121, 198, 0.5);
+
+  --particles1: #ff79c6;   /* pink */
+  --particles2: #50fa7b;   /* green */
+  --particles3: #bd93f9;   /* purple */
+  --particles4: #f8f8f2;   /* soft white */
 
 }
 

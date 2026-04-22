@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { supabase } from "../../../lib/supabase";
+import { getSupabase } from "../../../lib/supabase";
 
 const priorityMap = ["Low", "Medium", "High"];
 
@@ -18,6 +18,8 @@ const VaultTickets = ({
   const paginated = messages.slice((page - 1) * limit, page * limit);
 
   const handleUpdate = async () => {
+    const supabase = await getSupabase(); // ✅
+
     await supabase
       .from("contact_messages")
       .update({

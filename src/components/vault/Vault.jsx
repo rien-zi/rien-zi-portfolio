@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { supabase } from "../../lib/supabase";
+import { getSupabase } from "../../lib/supabase";
 
 import VaultSummary from "./pages/VaultSummary";
 import VaultTickets from "./pages/VaultTickets";
@@ -47,6 +47,8 @@ const Vault = () => {
 
   /* FETCH */
   const fetchMessages = async () => {
+    const supabase = await getSupabase(); // ✅
+
     const { data } = await supabase
       .from("contact_messages")
       .select("*")

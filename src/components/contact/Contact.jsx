@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FadeSlideIn from "../rss/FadeSlideIn";
-import { supabase } from "../../lib/supabase";
+import { getSupabase } from "../../lib/supabase";
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -34,6 +34,8 @@ const Contact = () => {
     setStatus("submitting");
 
     try {
+      const supabase = await getSupabase(); // ✅
+
       const { error } = await supabase.from("contact_messages").insert([
         {
           name: form.name,
