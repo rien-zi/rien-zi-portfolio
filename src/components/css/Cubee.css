@@ -1,0 +1,145 @@
+.cubee-anchor {
+  justify-self: center;
+  width: min(100%, 400px);
+  aspect-ratio: 1;
+  padding-bottom: 44px;
+  box-sizing: content-box;
+}
+
+.cubee-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  z-index: 600;
+  pointer-events: none;
+  will-change: transform, width;
+}
+
+.cubee-companion {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  width: 100%;
+}
+
+.cubee-stage {
+  position: relative;
+  width: min(100%, 400px);
+}
+
+.cubee-button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 28%;
+  background: transparent;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  pointer-events: auto;
+}
+
+.is-dragging .cubee-button {
+  cursor: grabbing;
+}
+
+.cubee-art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.cubee-button:focus-visible,
+.cubee-hello:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.cubee-hello {
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  min-height: 44px;
+  pointer-events: auto;
+}
+
+.cubee-hello span {
+  margin-left: 10px;
+  color: var(--accent-ink, var(--accent));
+}
+
+.cubee-hello:hover {
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.cubee-follower[data-docked="true"] .cubee-hello {
+  padding: 6px 10px;
+  border: 1px solid var(--nav-border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  font-size: 10px;
+}
+
+/* The package rotates the 3D body; an independent SVG hand articulates at
+   the wrist because expression timelines do not animate body nodes. */
+.cubee-hand {
+  position: absolute;
+  top: 24%;
+  right: 3%;
+  width: 18%;
+  overflow: visible;
+  fill: var(--cubee-body);
+  pointer-events: none;
+  transform-origin: 50% 92%;
+  animation: cubee-wave var(--wave-duration) ease-in-out both;
+}
+
+.cubee-hand-crease {
+  fill: none;
+  stroke: var(--cubee-eyes);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+@keyframes cubee-wave {
+  0% { opacity: 0; transform: translate(-8px, 18px) scale(0.7) rotate(-22deg); }
+  14% { opacity: 1; transform: translate(0, 0) scale(1) rotate(12deg); }
+  27%, 50%, 73% { opacity: 1; transform: rotate(-16deg); }
+  38%, 61%, 84% { opacity: 1; transform: rotate(16deg); }
+  100% { opacity: 0; transform: translate(-8px, 18px) scale(0.7) rotate(-12deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cubee-hand {
+    animation: none;
+    transform: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .cubee-anchor {
+    width: 220px;
+  }
+}
+
+.cubee-anchor-game { position: fixed; left: 20px; bottom: 24px; width: 104px; height: 148px; padding: 0; visibility: hidden; pointer-events: none; }
+.cubee-hello .cubee-hello-label { margin-left: 0; color: var(--fg); }
+.cubee-hello-icon { display: none; width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.5; }
+.cubee-follower[data-rail="true"] .cubee-hello-label, .cubee-follower[data-rail="true"] .cubee-hello-arrow { display: none; }
+.cubee-follower[data-rail="true"] .cubee-hello { padding: 8px; min-height: 36px; }
+.cubee-follower[data-rail="true"] .cubee-hello-icon { display: block; }
+
+.cubee-follower[data-docked="true"] .cubee-hello {
+  max-width: 100%;
+  line-height: 1.35;
+}

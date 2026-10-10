@@ -1,0 +1,68 @@
+.games-section { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; --blobee-body: #6686ed; }
+:root[data-theme="light"] .games-section { --blobee-body: #6556bf; }
+.games-heading { margin-bottom: 40px; }
+.games-heading h2 { font-size: clamp(34px, 4.6vw, 64px); font-weight: 600; line-height: 1.15; letter-spacing: -.055em; margin: 16px 0; }
+.games-heading > p:last-child { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.games-arena { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 100px); align-items: center; }
+.games-kicker { color: var(--muted); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.game-avatar { width: 100%; height: 100%; display: block; }
+.game-avatar-kyubee .game-avatar-body { fill: var(--accent); }
+.game-avatar-blobee .game-avatar-body { fill: var(--blobee-body); }
+.game-avatar-eye { fill: var(--bg); }
+.games-players { display: flex; align-items: center; justify-content: start; gap: 24px; margin: 28px 0; }
+.games-players > div { display: grid; justify-items: center; gap: 10px; font-size: 11px; }
+.games-players .game-avatar { width: 80px; height: 80px; }
+.games-versus { font-size: 11px; color: var(--muted); }
+.games-difficulty { border: 0; padding: 0; margin: 0; }
+.games-difficulty legend { font-size: 12px; margin-bottom: 12px; }
+.games-difficulty > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.games-difficulty button { border: 1px solid var(--nav-border); border-radius: 999px; padding: 10px 16px; font-size: 11px; background: transparent; color: var(--fg); cursor: pointer; }
+.games-difficulty button[aria-pressed="true"] { color: var(--accent-ink, var(--accent)); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, transparent); }
+.games-mode-description, .games-rule { font-size: 12px; color: var(--muted); line-height: 1.8; max-width: 38ch; margin: 16px 0; }
+.games-scoreboard { display: flex; gap: 36px; padding: 24px 0; margin-top: 20px; border-top: 1px solid var(--nav-border); border-bottom: 1px solid var(--nav-border); }
+.games-scoreboard > div { display: grid; gap: 6px; }
+.games-scoreboard strong { font-size: 28px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.games-scoreboard span { font-size: 10px; color: var(--muted); }
+.games-reset-scores { background: none; border: 0; color: var(--muted); padding: 8px 0; font-size: 10px; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.games-play-area { width: min(100%, 560px); justify-self: end; }
+.games-status { display: flex; align-items: center; gap: 10px; min-height: 48px; margin-bottom: 12px; font-size: 12px; line-height: 1.7; }
+.games-status > span { width: 6px; height: 6px; flex: 0 0 6px; border-radius: 50%; background: var(--accent); }
+.games-status .is-thinking { background: var(--blobee-body); animation: blobee-thinking 1s ease-in-out infinite alternate; }
+.games-board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; padding: 12px; border: 1px solid var(--nav-border); border-radius: 24px; background: var(--surface); }
+.games-cell { display: grid; place-items: center; min-width: 0; aspect-ratio: 1; border: 1px solid var(--nav-border); border-radius: 14px; padding: 18%; background: var(--bg); cursor: pointer; transition: border-color 180ms ease, background 180ms ease; }
+.games-cell:disabled { cursor: default; opacity: 1; }
+.games-cell:not(:disabled):hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 5%, var(--bg)); }
+.games-cell-preview { opacity: 0; width: 100%; height: 100%; }
+.games-cell:not(:disabled):hover .games-cell-preview, .games-cell:focus-visible .games-cell-preview { opacity: .22; }
+.games-cell > .game-avatar { animation: game-piece-arrive 350ms cubic-bezier(.2,.8,.2,1) both; }
+.games-cell.is-winning { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--bg)); box-shadow: inset 0 0 24px color-mix(in srgb, var(--accent) 12%, transparent); }
+.games-cell.is-winning[data-player="B"] { border-color: var(--blobee-body); background: color-mix(in srgb, var(--blobee-body) 12%, var(--bg)); }
+.games-board-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 20px; font-size: 10px; color: var(--muted); }
+.games-new-round { border: 1px solid var(--nav-border); border-radius: 999px; padding: 12px 18px; color: var(--fg); background: var(--surface); cursor: pointer; font-size: 12px; }
+.games-new-round span { color: var(--accent-ink, var(--accent)); margin-left: 12px; }
+.games-section button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+@keyframes game-piece-arrive { from { opacity: 0; transform: translateY(8px) scale(.7) rotate(-12deg); } to { opacity: 1; transform: none; } }
+@keyframes blobee-thinking { to { opacity: .35; } }
+@media (max-width: 760px) {
+  .games-arena { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .games-heading { margin-bottom: 24px; }
+  .games-sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; align-items: center; }
+  .games-kicker, .games-mode-description { grid-column: 1 / -1; margin: 0; }
+  .games-players { margin: 8px 0; gap: 10px; }
+  .games-players .game-avatar { width: 54px; height: 54px; }
+  .games-difficulty button { padding: 8px 12px; }
+  .games-scoreboard { grid-column: 1 / -1; margin: 0; padding: 14px 0; justify-content: space-around; }
+  .games-rule { margin: 0; }
+  .games-reset-scores { justify-self: end; }
+  .games-play-area { justify-self: center; }
+  .games-board { gap: 8px; padding: 10px; border-radius: 18px; }
+  .games-cell { border-radius: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .games-cell > .game-avatar, .games-status .is-thinking { animation: none; }
+  .games-cell { transition: none; }
+}
+
+.game-page { width: min(1200px, calc(100% - 132px)); margin: 0 auto; padding-top: 94px; }
+.game-page .games-section { border-top: 0; padding: 30px 0 60px; min-height: calc(100svh - 94px); }
+@media (max-width: 760px) { .game-page { width: calc(100% - 88px); margin-left: 20px; margin-right: 68px; } .games-sidebar { grid-template-columns: minmax(0, 1fr); } .games-reset-scores { justify-self: start; } }

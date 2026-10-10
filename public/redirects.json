@@ -1,17 +1,67 @@
 [
-    {
-        "source": "/api/contact",
-        "target": "https://3rgs9grsrj.execute-api.ap-south-1.amazonaws.com/dev/contact",
-        "status": "200"
-    },
-    {
-        "source": "/api/<*>",
-        "target": "https://3rgs9grsrj.execute-api.ap-south-1.amazonaws.com/dev/<*>",
-        "status": "200"
-    },
-    {
-        "source": "/<*>",
-        "target": "/index.html",
-        "status": "200"
-    }
+  {
+    "source": "/api/contact",
+    "target": "https://3rgs9grsrj.execute-api.ap-south-1.amazonaws.com/dev/contact",
+    "status": "200"
+  },
+  {
+    "source": "/api/<*>",
+    "target": "https://3rgs9grsrj.execute-api.ap-south-1.amazonaws.com/dev/<*>",
+    "status": "200"
+  },
+  {
+    "source": "/work/resolute",
+    "target": "/work/resolute/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/work/middleware",
+    "target": "/work/middleware/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/work/document-intelligence",
+    "target": "/work/document-intelligence/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/work/campaign-management",
+    "target": "/work/campaign-management/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/games",
+    "target": "/games/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/work/resolute/",
+    "target": "/work/resolute/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/work/middleware/",
+    "target": "/work/middleware/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/work/document-intelligence/",
+    "target": "/work/document-intelligence/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/work/campaign-management/",
+    "target": "/work/campaign-management/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/games/",
+    "target": "/games/index.html",
+    "status": "200"
+  },
+  {
+    "source": "/<*>",
+    "target": "/index.html",
+    "status": "200"
+  }
 ]

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
-Sitemap: https://rien-zi.irisaut.space/sitemap.xml
+Sitemap: https://rien-zi.aexis.space/sitemap.xml

@@ -1,0 +1,2022 @@
+{
+  "schemaVersion": 1,
+  "name": "Kyubee portfolio conversations",
+  "settings": {
+    "idleMinMs": 5000,
+    "idleMaxMs": 10000,
+    "quietAfterInteractionMs": 1800,
+    "cornerMinMs": 16000,
+    "cornerMaxMs": 28000,
+    "scrollSettleMs": 1000
+  },
+  "greetings": [
+    {
+      "id": "en1",
+      "lang": "en",
+      "text": "Hi, I’m Kyubee. Nice meeting you! I’ll keep you company while you explore."
+    },
+    {
+      "id": "en2",
+      "lang": "en",
+      "text": "Hello there! I’m Kyubee, your small companion for Renzil’s portfolio."
+    },
+    {
+      "id": "en3",
+      "lang": "en",
+      "text": "Welcome! I’m Kyubee. A little tour, a useful fact or a tiny distraction? You choose."
+    },
+    {
+      "id": "hi",
+      "lang": "hi",
+      "text": "नमस्ते! मैं Kyubee हूँ। आपसे मिलकर अच्छा लगा।",
+      "translation": "Hello! I’m Kyubee. Nice meeting you."
+    },
+    {
+      "id": "gu",
+      "lang": "gu",
+      "text": "નમસ્તે! હું Kyubee છું. તમને મળીને આનંદ થયો.",
+      "translation": "Hello! I’m Kyubee. Nice meeting you."
+    },
+    {
+      "id": "fr",
+      "lang": "fr",
+      "text": "Salut ! Moi, c’est Kyubee. Ravi de vous rencontrer !",
+      "translation": "Hi! I’m Kyubee. Nice meeting you."
+    }
+  ],
+  "sectionEntries": {
+    "hero": "hero",
+    "about": "about",
+    "career": "career",
+    "work": "work",
+    "impact": "impact",
+    "skills": "skills",
+    "approach": "approach",
+    "education": "education",
+    "contact": "contact",
+    "games": "games",
+    "project:resolute": "resolute",
+    "project:middleware": "middleware",
+    "project:document-intelligence": "rag",
+    "project:campaign-management": "campaign"
+  },
+  "animationPools": {
+    "idle": [
+      "idle",
+      "listening",
+      "thinking",
+      "searching",
+      "curious",
+      "happy",
+      "shy",
+      "proud",
+      "playful",
+      "idle-blink",
+      "idle-blink",
+      "idle-peek"
+    ],
+    "reading": [
+      "listening",
+      "thinking",
+      "idle-blink",
+      "idle-blink"
+    ],
+    "hover": [
+      "curious",
+      "happy",
+      "playful",
+      "surprised",
+      "excited",
+      "hover-greeting",
+      "hover-orbit"
+    ],
+    "journey": [
+      "searching",
+      "curious",
+      "proud",
+      "idle",
+      "follow-turn"
+    ]
+  },
+  "nodes": {
+    "hero": {
+      "answer": "I’m the small guide around here. Renzil builds operational software, automation and applied AI. You choose the trail; I supply the occasional suspicious wink.",
+      "question": "What brought you here?",
+      "reaction": "waking",
+      "choices": [
+        {
+          "label": "Meet the person",
+          "next": "about",
+          "reaction": "happy"
+        },
+        {
+          "label": "Explore the projects",
+          "next": "work",
+          "reaction": "working"
+        },
+        {
+          "label": "Just here for the cube",
+          "next": "playroom",
+          "reaction": "playful"
+        }
+      ]
+    },
+    "about": {
+      "answer": "Renzil is a Bengaluru-based builder connecting workflows, data, interfaces and infrastructure. His operations and training background shapes how he approaches engineering.",
+      "question": "What would you like to know?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "What drives his work?",
+          "next": "motivation",
+          "reaction": "thinking"
+        },
+        {
+          "label": "How did he get here?",
+          "next": "career",
+          "reaction": "searching"
+        },
+        {
+          "label": "How does he work with people?",
+          "next": "people",
+          "reaction": "listening"
+        }
+      ]
+    },
+    "motivation": {
+      "answer": "Make complex work understandable, remove repetitive steps and build dependable systems. The useful outcome comes before the technology choice.",
+      "question": "Which part should we explore?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "His engineering principles",
+          "next": "approach",
+          "reaction": "proud"
+        },
+        {
+          "label": "A practical example",
+          "next": "resolute",
+          "reaction": "working"
+        }
+      ]
+    },
+    "people": {
+      "answer": "Training and knowledge management taught him to keep users close. Interfaces and communication are part of the workflow, not an afterthought.",
+      "question": "Want an example?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Communication improvements",
+          "next": "communication",
+          "reaction": "happy"
+        },
+        {
+          "label": "The training years",
+          "next": "training",
+          "reaction": "listening"
+        }
+      ]
+    },
+    "career": {
+      "answer": "The story runs from training and content into automation engineering, then architecture and broader operational ownership at Swiggy.",
+      "question": "Choose a chapter.",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "The early years",
+          "next": "training",
+          "reaction": "shy"
+        },
+        {
+          "label": "The engineering transition",
+          "next": "transition",
+          "reaction": "excited"
+        },
+        {
+          "label": "The current role",
+          "next": "current-role",
+          "reaction": "proud"
+        }
+      ]
+    },
+    "training": {
+      "answer": "From September 2020, Renzil worked as a Senior Training Specialist, then Assistant Team Lead in Training & Content from October 2022. Reported work includes an LMS serving 5,000+ users.",
+      "question": "Where next?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "From training to code",
+          "next": "transition",
+          "reaction": "waking"
+        },
+        {
+          "label": "Why users matter",
+          "next": "people",
+          "reaction": "listening"
+        }
+      ]
+    },
+    "transition": {
+      "answer": "Process Automation Engineer from October 2023, then Lead Process Automation Engineer from November 2024. The remit expanded into architecture, integrations, applied AI and end-to-end system ownership.",
+      "question": "What does that ownership include?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "The whole lifecycle",
+          "next": "lifecycle",
+          "reaction": "working"
+        },
+        {
+          "label": "Show the projects",
+          "next": "work",
+          "reaction": "searching"
+        }
+      ]
+    },
+    "current-role": {
+      "answer": "Since April 2026: Assistant Manager, Process Automation & Control Tower. Engineering continues alongside real-time operational monitoring and escalation handling.",
+      "question": "Want to see what connects those responsibilities?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Operational visibility",
+          "next": "visibility",
+          "reaction": "searching"
+        },
+        {
+          "label": "Resolute",
+          "next": "resolute",
+          "reaction": "proud"
+        }
+      ]
+    },
+    "work": {
+      "answer": "Four systems worth exploring: Resolute, Middleware Integration, RAG & Document Intelligence, and Campaign Management. PHP modernization is part of Resolute.",
+      "question": "Pick a system.",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Resolute",
+          "next": "resolute",
+          "reaction": "curious"
+        },
+        {
+          "label": "Middleware Integration",
+          "next": "middleware",
+          "reaction": "curious"
+        },
+        {
+          "label": "Document intelligence",
+          "next": "rag",
+          "reaction": "curious"
+        },
+        {
+          "label": "Campaign Management",
+          "next": "campaign",
+          "reaction": "curious"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "work"
+      }
+    },
+    "project-menu": {
+      "answer": "Cited document answers, self-service campaigns, resilient integrations and a modernized operational platform. Pick a closer look.",
+      "question": "Which sounds interesting?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Resolute",
+          "next": "resolute",
+          "reaction": "curious"
+        },
+        {
+          "label": "Middleware Integration",
+          "next": "middleware",
+          "reaction": "curious"
+        },
+        {
+          "label": "Document intelligence",
+          "next": "rag",
+          "reaction": "curious"
+        },
+        {
+          "label": "Campaign Management",
+          "next": "campaign",
+          "reaction": "curious"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "project-menu"
+      }
+    },
+    "resolute": {
+      "answer": "Resolute connects operational interfaces, authorized workflows, backend APIs, data and automation. Reported adoption is 8,000+ daily users.",
+      "question": "Which part should I unpack?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "The workflow",
+          "next": "resolute-flow",
+          "reaction": "working"
+        },
+        {
+          "label": "What is still in progress?",
+          "next": "resolute-next",
+          "reaction": "thinking"
+        },
+        {
+          "label": "The reported results",
+          "next": "impact",
+          "reaction": "proud"
+        },
+        {
+          "label": "Open the project & demo",
+          "next": "resolute",
+          "reaction": "excited",
+          "project": "resolute"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "resolute"
+      }
+    },
+    "resolute-flow": {
+      "answer": "Agent dashboards and query workflows connect through APIs and middleware to operational data. Auditing, email classification, knowledge tools and human-reviewed resolution sit around that core.",
+      "question": "Follow a thread.",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Human-reviewed AI",
+          "next": "human-review",
+          "reaction": "listening"
+        },
+        {
+          "label": "Cross-system integrations",
+          "next": "middleware",
+          "reaction": "working"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "resolute-flow"
+      }
+    },
+    "resolute-next": {
+      "answer": "A single source of truth, cross-channel auditing, deterministic MIS analysis and workforce-management automation are in progress. Those are future capabilities, not finished deliverables.",
+      "question": "What next?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Explore the shipped work",
+          "next": "work",
+          "reaction": "proud"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "resolute-next"
+      }
+    },
+    "middleware": {
+      "answer": "Webhooks feed an event queue. Background workers transform payloads, store state and dispatch notifications. The design includes retries and idempotency for reliable execution.",
+      "question": "A small engineering detour?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Why idempotency?",
+          "next": "idempotency",
+          "reaction": "thinking"
+        },
+        {
+          "label": "Why queues?",
+          "next": "queues",
+          "reaction": "working"
+        },
+        {
+          "label": "What about failures?",
+          "next": "failures",
+          "reaction": "suspicious"
+        },
+        {
+          "label": "Open the project & demo",
+          "next": "middleware",
+          "reaction": "excited",
+          "project": "middleware"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "middleware"
+      }
+    },
+    "idempotency": {
+      "answer": "A webhook can arrive twice. An idempotent handler makes repeating the same event safe instead of repeating its side effects. My imaginary payroll would appreciate this.",
+      "question": "Where next?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Handling failures",
+          "next": "failures",
+          "reaction": "working"
+        },
+        {
+          "label": "More imaginary payroll",
+          "next": "cube-job",
+          "reaction": "laughing"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "idempotency"
+      }
+    },
+    "queues": {
+      "answer": "Queues separate receiving an event from doing the work. Workers can retry and process tasks in the background while the incoming request stays lightweight.",
+      "question": "Want the next layer?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Reliability and retries",
+          "next": "failures",
+          "reaction": "thinking"
+        },
+        {
+          "label": "The technical stack",
+          "next": "skills",
+          "reaction": "proud"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "queues"
+      }
+    },
+    "failures": {
+      "answer": "Expect duplicate events, unavailable services and mismatched payloads. Retries, clear boundaries and observable state help a workflow recover without turning every issue into manual work.",
+      "question": "Your next stop?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Delivery and monitoring",
+          "next": "delivery",
+          "reaction": "working"
+        },
+        {
+          "label": "A tiny debugging joke",
+          "next": "debugging",
+          "reaction": "confused"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "failures"
+      }
+    },
+    "rag": {
+      "answer": "Documents are parsed, chunked and indexed. Hybrid retrieval and metadata filters assemble relevant context so the response can point back to its sources.",
+      "question": "Which detail?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Why cited answers?",
+          "next": "citations",
+          "reaction": "listening"
+        },
+        {
+          "label": "Does AI do everything?",
+          "next": "human-review",
+          "reaction": "thinking"
+        },
+        {
+          "label": "The retrieval stack",
+          "next": "retrieval-stack",
+          "reaction": "curious"
+        },
+        {
+          "label": "Open the project & demo",
+          "next": "rag",
+          "reaction": "excited",
+          "project": "document-intelligence"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "rag"
+      }
+    },
+    "citations": {
+      "answer": "A useful answer should make its source visible. References help a reader inspect the evidence rather than relying on a confident-sounding sentence.",
+      "question": "Where next?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Keeping AI accountable",
+          "next": "human-review",
+          "reaction": "proud"
+        },
+        {
+          "label": "My confidence problem",
+          "next": "cube-confidence",
+          "reaction": "suspicious"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "citations"
+      }
+    },
+    "human-review": {
+      "answer": "Use deterministic rules where they fit. Add structured outputs, retrieval and human review where needed. The reported email-resolution workflow combines RAG with review and deterministic logic.",
+      "question": "Want another perspective?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "What are the reported outcomes?",
+          "next": "impact",
+          "reaction": "happy"
+        },
+        {
+          "label": "The wider approach",
+          "next": "approach",
+          "reaction": "thinking"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "human-review"
+      }
+    },
+    "retrieval-stack": {
+      "answer": "The project uses Python and FastAPI, vector retrieval with Pgvector or Qdrant, OpenAI integration, and a React/TypeScript interface. Each layer has a specific job.",
+      "question": "Which layer interests you?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Backend capabilities",
+          "next": "backend",
+          "reaction": "working"
+        },
+        {
+          "label": "Data capabilities",
+          "next": "data",
+          "reaction": "searching"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "retrieval-stack"
+      }
+    },
+    "legacy": {
+      "answer": "The PHP modernization belongs to Resolute: improving established backends for reliability, maintainability and integration with modern interfaces.",
+      "question": "The obvious question…",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Why not rewrite everything?",
+          "next": "rewrite",
+          "reaction": "thinking"
+        },
+        {
+          "label": "What was improved?",
+          "next": "legacy-details",
+          "reaction": "proud"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "legacy"
+      }
+    },
+    "rewrite": {
+      "answer": "A rewrite also has migration costs and production risk. This work emphasizes targeted improvements that preserve useful behavior while making the system easier to maintain.",
+      "question": "What next?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "The full lifecycle",
+          "next": "lifecycle",
+          "reaction": "working"
+        },
+        {
+          "label": "A rewrite joke",
+          "next": "rewrite-joke",
+          "reaction": "scared"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "rewrite"
+      }
+    },
+    "legacy-details": {
+      "answer": "Query cleanup, backend refactoring, secure payload handling and new API endpoints. The goal is reliability and useful integration with newer interfaces.",
+      "question": "Keep exploring?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Interfaces",
+          "next": "interfaces",
+          "reaction": "happy"
+        },
+        {
+          "label": "All selected projects",
+          "next": "work",
+          "reaction": "curious"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show selected work",
+        "section": "work",
+        "next": "legacy-details"
+      }
+    },
+    "impact": {
+      "answer": "These are self-reported outcomes. Associated and projected savings are labelled separately; the initiatives are not added into one grand total.",
+      "question": "Which result?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Classification and auditing",
+          "next": "throughput",
+          "reaction": "working"
+        },
+        {
+          "label": "Faster resolution",
+          "next": "resolution",
+          "reaction": "happy"
+        },
+        {
+          "label": "Communication and people",
+          "next": "communication",
+          "reaction": "listening"
+        }
+      ]
+    },
+    "throughput": {
+      "answer": "Reported scope: 150,000+ classified emails/day at approximately 98% accuracy, and 120,000+ screened interactions/day. Associated savings and projected leakage reduction have different labels.",
+      "question": "Want context?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "How should I read the figures?",
+          "next": "figures",
+          "reaction": "thinking"
+        },
+        {
+          "label": "The platform behind them",
+          "next": "resolute",
+          "reaction": "proud"
+        }
+      ]
+    },
+    "figures": {
+      "answer": "Classification has approximately ₹7 Cr/year in associated savings. Auditing has approximately ₹4 Cr/year projected savings or leakage reduction. These are self-reported estimates, not independently audited totals.",
+      "question": "Where next?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Beyond the numbers",
+          "next": "care",
+          "reaction": "listening"
+        },
+        {
+          "label": "A restrained celebration",
+          "next": "celebrate",
+          "reaction": "celebrate"
+        }
+      ]
+    },
+    "resolution": {
+      "answer": "Reported average handling time moved from 10–15 minutes to 3–4. Resolution turnaround moved from 24–48 hours to 4–8. First responses improved from hours to minutes or seconds.",
+      "question": "What should we look at next?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Human-reviewed resolution",
+          "next": "human-review",
+          "reaction": "thinking"
+        },
+        {
+          "label": "Beyond the numbers",
+          "next": "care",
+          "reaction": "happy"
+        }
+      ]
+    },
+    "communication": {
+      "answer": "Reported communication improvements include +2.3% CSAT and a 6% reduction in escalations from incorrect communication. Approximately 600 templates were standardized in a three-month reporting window.",
+      "question": "Where next?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Why users matter",
+          "next": "people",
+          "reaction": "listening"
+        },
+        {
+          "label": "A quiet victory lap",
+          "next": "celebrate",
+          "reaction": "celebrate"
+        }
+      ]
+    },
+    "care": {
+      "answer": "Less repetition, clearer communication and faster useful answers. The numbers help describe outcomes; the experience of the people using the systems matters too.",
+      "question": "Pick another trail.",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Engineering approach",
+          "next": "approach",
+          "reaction": "proud"
+        },
+        {
+          "label": "Meet the person",
+          "next": "about",
+          "reaction": "happy"
+        }
+      ]
+    },
+    "skills": {
+      "answer": "Backend, data, automation, applied AI, interfaces, cloud delivery and identity. The interesting part is how those layers work together.",
+      "question": "Choose a capability.",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Backend and data",
+          "next": "technical-menu",
+          "reaction": "working"
+        },
+        {
+          "label": "AI and interfaces",
+          "next": "ai-menu",
+          "reaction": "curious"
+        },
+        {
+          "label": "Delivery and identity",
+          "next": "delivery-menu",
+          "reaction": "thinking"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show capabilities",
+        "section": "skills",
+        "next": "skills"
+      }
+    },
+    "technical-menu": {
+      "answer": "Good service boundaries and useful data models make automation easier to reason about.",
+      "question": "Choose a layer.",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Backend and APIs",
+          "next": "backend",
+          "reaction": "working"
+        },
+        {
+          "label": "Data and analytics",
+          "next": "data",
+          "reaction": "searching"
+        },
+        {
+          "label": "Automation",
+          "next": "automation",
+          "reaction": "excited"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show capabilities",
+        "section": "skills",
+        "next": "technical-menu"
+      }
+    },
+    "ai-menu": {
+      "answer": "Grounded retrieval needs usable interfaces, and usable interfaces need clear system state.",
+      "question": "Choose a layer.",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Applied AI",
+          "next": "rag",
+          "reaction": "thinking"
+        },
+        {
+          "label": "Interfaces",
+          "next": "interfaces",
+          "reaction": "happy"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show capabilities",
+        "section": "skills",
+        "next": "ai-menu"
+      }
+    },
+    "delivery-menu": {
+      "answer": "A system needs a place to run, a way to observe it and clear access boundaries.",
+      "question": "Choose a layer.",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Cloud and delivery",
+          "next": "delivery",
+          "reaction": "working"
+        },
+        {
+          "label": "Identity and access",
+          "next": "identity",
+          "reaction": "suspicious"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show capabilities",
+        "section": "skills",
+        "next": "delivery-menu"
+      }
+    },
+    "backend": {
+      "answer": "Node.js/TypeScript, Python and PHP, with Express/Fastify and FastAPI/Flask. REST APIs and webhooks connect business logic to other tools.",
+      "question": "What should connect next?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Data models",
+          "next": "data",
+          "reaction": "thinking"
+        },
+        {
+          "label": "Integration middleware",
+          "next": "middleware",
+          "reaction": "working"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show capabilities",
+        "section": "skills",
+        "next": "backend"
+      }
+    },
+    "data": {
+      "answer": "PostgreSQL/MySQL, MongoDB, Snowflake and Redis support different data needs. Power BI and Looker Studio help make operational signals visible.",
+      "question": "Want an example?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Operational visibility",
+          "next": "visibility",
+          "reaction": "searching"
+        },
+        {
+          "label": "Retrieval and documents",
+          "next": "rag",
+          "reaction": "curious"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show capabilities",
+        "section": "skills",
+        "next": "data"
+      }
+    },
+    "visibility": {
+      "answer": "Operational data should lead to useful monitoring and action. In the current role, that includes evaluating scattered data, broken pipelines and signals that need escalation.",
+      "question": "Where next?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "The current role",
+          "next": "current-role",
+          "reaction": "proud"
+        },
+        {
+          "label": "Reliable delivery",
+          "next": "delivery",
+          "reaction": "working"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show capabilities",
+        "section": "skills",
+        "next": "visibility"
+      }
+    },
+    "automation": {
+      "answer": "Queues, workers, retries, scheduled tasks and event-driven workflows connect fragmented tools. Reliable automation handles the exceptions as well as the happy path.",
+      "question": "Which part?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Retries and failures",
+          "next": "failures",
+          "reaction": "thinking"
+        },
+        {
+          "label": "The happy path, literally",
+          "next": "celebrate",
+          "reaction": "happy"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show capabilities",
+        "section": "skills",
+        "next": "automation"
+      }
+    },
+    "interfaces": {
+      "answer": "React/Next.js, Vite, Tailwind, EJS and GSAP. An interface should make complex state understandable. This portfolio uses motion to add personality to that clarity.",
+      "question": "Motion question?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "How do you work, Kyubee?",
+          "next": "cube-tech",
+          "reaction": "curious"
+        },
+        {
+          "label": "That character at the end?",
+          "next": "outro",
+          "reaction": "surprised"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show capabilities",
+        "section": "skills",
+        "next": "interfaces"
+      }
+    },
+    "delivery": {
+      "answer": "AWS EC2/S3, Docker, PM2, NGINX, Certbot and CI/CD. Deployment, observation and maintenance are part of the same engineering responsibility.",
+      "question": "Keep going?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "The full lifecycle",
+          "next": "lifecycle",
+          "reaction": "working"
+        },
+        {
+          "label": "Identity boundaries",
+          "next": "identity",
+          "reaction": "suspicious"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show capabilities",
+        "section": "skills",
+        "next": "delivery"
+      }
+    },
+    "identity": {
+      "answer": "Authentication answers who you are; authorization decides what you may do. The toolkit includes sessions/JWT, OTP, OAuth, SSO and RBAC, with protected routes and audit logging.",
+      "question": "Want an example?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "A security-conscious cube",
+          "next": "cube-security",
+          "reaction": "shy"
+        }
+      ],
+      "sectionLink": {
+        "question": "Want to see more of this on the page?",
+        "label": "Show capabilities",
+        "section": "skills",
+        "next": "identity"
+      }
+    },
+    "approach": {
+      "answer": "Start with the workflow. Own the whole lifecycle. Keep AI accountable. Modernize with care. These principles connect the different projects.",
+      "question": "Choose one.",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Workflow first",
+          "next": "workflow",
+          "reaction": "listening"
+        },
+        {
+          "label": "Whole lifecycle",
+          "next": "lifecycle",
+          "reaction": "working"
+        },
+        {
+          "label": "AI and modernization",
+          "next": "principles-menu",
+          "reaction": "thinking"
+        }
+      ]
+    },
+    "workflow": {
+      "answer": "Understand the problem, people and edge cases before choosing software boundaries. Training and operational experience help keep that work grounded.",
+      "question": "What next?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "The people behind systems",
+          "next": "people",
+          "reaction": "happy"
+        },
+        {
+          "label": "A practical project",
+          "next": "resolute",
+          "reaction": "proud"
+        }
+      ]
+    },
+    "lifecycle": {
+      "answer": "Data models, APIs, interfaces, deployment and maintenance belong together. End-to-end ownership means thinking past the first successful demo.",
+      "question": "Want to follow a layer?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Delivery",
+          "next": "delivery",
+          "reaction": "working"
+        },
+        {
+          "label": "Interfaces",
+          "next": "interfaces",
+          "reaction": "curious"
+        }
+      ]
+    },
+    "principles-menu": {
+      "answer": "Use AI with evidence and review where needed. Change existing systems carefully enough that people can keep using them.",
+      "question": "Which story?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Accountable AI",
+          "next": "human-review",
+          "reaction": "thinking"
+        },
+        {
+          "label": "Careful modernization",
+          "next": "legacy",
+          "reaction": "proud"
+        }
+      ]
+    },
+    "education": {
+      "answer": "A Bachelor of Commerce from St. Aloysius College, Mangaluru, in 2018. Continued learning includes prompt engineering and data-analysis certifications in 2024.",
+      "question": "What next?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Learning through work",
+          "next": "learning",
+          "reaction": "curious"
+        },
+        {
+          "label": "The career timeline",
+          "next": "career",
+          "reaction": "proud"
+        }
+      ]
+    },
+    "learning": {
+      "answer": "The career progression reflects learning through real workflows: training, knowledge systems, automation, integrations and architecture. The portfolio shows the progression alongside the formal learning.",
+      "question": "Choose another trail.",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Capabilities",
+          "next": "skills",
+          "reaction": "excited"
+        },
+        {
+          "label": "Career chapters",
+          "next": "career",
+          "reaction": "listening"
+        }
+      ]
+    },
+    "contact": {
+      "answer": "Have a workflow, product idea or system worth rethinking? The contact section links directly to Renzil’s email and professional profiles. I can show you the way.",
+      "question": "Your next move?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Take me to contact",
+          "next": "contact-details",
+          "reaction": "happy",
+          "section": "contact"
+        },
+        {
+          "label": "What work interests him?",
+          "next": "opportunities",
+          "reaction": "proud"
+        },
+        {
+          "label": "One last cube question",
+          "next": "playroom",
+          "reaction": "playful"
+        },
+        {
+          "label": "Back to the beginning ↑",
+          "next": "hero",
+          "reaction": "waking",
+          "section": "hero"
+        }
+      ]
+    },
+    "contact-details": {
+      "answer": "Email: renzil.digispec@gmail.com. LinkedIn and GitHub links are in the contact section too. I can introduce the work; Renzil handles the actual conversation.",
+      "question": "Before you go?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "A small goodbye",
+          "next": "goodbye",
+          "reaction": "shy"
+        },
+        {
+          "label": "That character sequence",
+          "next": "outro",
+          "reaction": "curious"
+        }
+      ]
+    },
+    "opportunities": {
+      "answer": "Meaningful ownership, hands-on engineering leadership and products that solve real workflow problems. Start with the problem you want to solve.",
+      "question": "Next?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Show the contact section",
+          "next": "contact-details",
+          "reaction": "happy",
+          "section": "contact"
+        },
+        {
+          "label": "See the work again",
+          "next": "work",
+          "reaction": "proud",
+          "section": "work"
+        }
+      ]
+    },
+    "outro": {
+      "answer": "I said no, but he spent far too long making that slightly scruffy character to leave him out. And here he is. Honestly? I respect the commitment.",
+      "question": "Which guide wins?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "The cube, obviously",
+          "next": "cube-confidence",
+          "reaction": "proud"
+        },
+        {
+          "label": "The human-looking one",
+          "next": "jealous",
+          "reaction": "sad"
+        },
+        {
+          "label": "Both can stay",
+          "next": "celebrate",
+          "reaction": "celebrate"
+        }
+      ]
+    },
+    "playroom": {
+      "answer": "Welcome to my very small department of distractions. I can react, tell a tiny joke or answer a question about how I work.",
+      "question": "What shall we do?",
+      "reaction": "playful",
+      "choices": [
+        {
+          "label": "Show me your moods",
+          "next": "moods",
+          "reaction": "playful"
+        },
+        {
+          "label": "Tell a tiny joke",
+          "next": "jokes",
+          "reaction": "laughing"
+        },
+        {
+          "label": "Play Tic Tac Toe",
+          "next": "games",
+          "reaction": "playful"
+        }
+      ]
+    },
+    "moods": {
+      "answer": "Twenty-three original animation patterns, plus greetings and reading poses. Pick a mood and I’ll demonstrate it briefly.",
+      "question": "Which mood?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Happy, proud or excited",
+          "next": "warm-moods",
+          "reaction": "happy"
+        },
+        {
+          "label": "Curious or suspicious",
+          "next": "curious-moods",
+          "reaction": "curious"
+        },
+        {
+          "label": "Sleepy or dramatic",
+          "next": "dramatic-moods",
+          "reaction": "drowsy"
+        }
+      ]
+    },
+    "warm-moods": {
+      "answer": "A little enthusiasm goes a long way. Choose a tiny celebration.",
+      "question": "What kind?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Happy",
+          "next": "happy-demo",
+          "reaction": "happy"
+        },
+        {
+          "label": "Proud",
+          "next": "proud-demo",
+          "reaction": "proud"
+        },
+        {
+          "label": "Excited",
+          "next": "excited-demo",
+          "reaction": "excited"
+        }
+      ]
+    },
+    "happy-demo": {
+      "answer": "This is my happy face. It looks suspiciously like I found a clean API contract.",
+      "question": "One more?",
+      "reaction": "happy",
+      "choices": [
+        {
+          "label": "Laugh",
+          "next": "laugh-demo",
+          "reaction": "laughing"
+        },
+        {
+          "label": "Celebrate",
+          "next": "celebrate",
+          "reaction": "celebrate"
+        },
+        {
+          "label": "Other moods",
+          "next": "moods",
+          "reaction": "idle"
+        }
+      ]
+    },
+    "proud-demo": {
+      "answer": "I have successfully remained a cube for this entire visit. A consistent track record.",
+      "question": "Next mood?",
+      "reaction": "proud",
+      "choices": [
+        {
+          "label": "A shy cube",
+          "next": "shy-demo",
+          "reaction": "shy"
+        },
+        {
+          "label": "Playful",
+          "next": "playful-demo",
+          "reaction": "playful"
+        },
+        {
+          "label": "Other moods",
+          "next": "moods",
+          "reaction": "idle"
+        }
+      ]
+    },
+    "excited-demo": {
+      "answer": "Someone said “useful automation” and I got a little carried away. I’ll return to a sensible angle shortly.",
+      "question": "Next?",
+      "reaction": "excited",
+      "choices": [
+        {
+          "label": "A victory lap",
+          "next": "celebrate",
+          "reaction": "celebrate"
+        },
+        {
+          "label": "Back to projects",
+          "next": "work",
+          "reaction": "working"
+        }
+      ]
+    },
+    "curious-moods": {
+      "answer": "I have questions. Mostly about who moved my corner.",
+      "question": "Pick a reaction.",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Suspicious",
+          "next": "suspicious-demo",
+          "reaction": "suspicious"
+        },
+        {
+          "label": "Confused",
+          "next": "confused-demo",
+          "reaction": "confused"
+        },
+        {
+          "label": "Surprised",
+          "next": "surprised-demo",
+          "reaction": "surprised"
+        }
+      ]
+    },
+    "suspicious-demo": {
+      "answer": "That duplicate webhook has been here before. I’m sure of it.",
+      "question": "What should we do?",
+      "reaction": "suspicious",
+      "choices": [
+        {
+          "label": "Explain idempotency",
+          "next": "idempotency",
+          "reaction": "thinking"
+        },
+        {
+          "label": "Let the cube investigate",
+          "next": "search-demo",
+          "reaction": "searching"
+        }
+      ]
+    },
+    "confused-demo": {
+      "answer": "If I rotate all the way around, is it a round trip or a square trip?",
+      "question": "Your verdict?",
+      "reaction": "confused",
+      "choices": [
+        {
+          "label": "Thinking required",
+          "next": "thinking-demo",
+          "reaction": "thinking"
+        },
+        {
+          "label": "Definitely a square trip",
+          "next": "laugh-demo",
+          "reaction": "laughing"
+        }
+      ]
+    },
+    "surprised-demo": {
+      "answer": "Twenty-three moods and still no eyebrows. Remarkable efficiency.",
+      "question": "What next?",
+      "reaction": "surprised",
+      "choices": [
+        {
+          "label": "Show me more moods",
+          "next": "moods",
+          "reaction": "curious"
+        },
+        {
+          "label": "Take me to the work",
+          "next": "work",
+          "reaction": "working",
+          "section": "work"
+        }
+      ]
+    },
+    "dramatic-moods": {
+      "answer": "I can be sleepy, startled or mildly annoyed. All theatrical; nobody has broken the portfolio.",
+      "question": "Choose the drama.",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "A sleepy moment",
+          "next": "sleep-demo",
+          "reaction": "sleeping"
+        },
+        {
+          "label": "Startle the cube",
+          "next": "scared-demo",
+          "reaction": "scared"
+        },
+        {
+          "label": "A grumpy moment",
+          "next": "angry-demo",
+          "reaction": "angry"
+        }
+      ]
+    },
+    "sleep-demo": {
+      "answer": "Just resting my pixels. A tiny nap, then back to the tour.",
+      "question": "Time to wake up?",
+      "reaction": "sleeping",
+      "choices": [
+        {
+          "label": "Wake up, Kyubee",
+          "next": "wake-demo",
+          "reaction": "waking"
+        },
+        {
+          "label": "Not quite awake",
+          "next": "drowsy-demo",
+          "reaction": "drowsy"
+        }
+      ]
+    },
+    "wake-demo": {
+      "answer": "I’m here! Did I miss an interesting architecture question?",
+      "question": "Where next?",
+      "reaction": "waking",
+      "choices": [
+        {
+          "label": "The engineering approach",
+          "next": "approach",
+          "reaction": "thinking"
+        },
+        {
+          "label": "More moods",
+          "next": "moods",
+          "reaction": "happy"
+        }
+      ]
+    },
+    "drowsy-demo": {
+      "answer": "One eye open. Metaphorically. My rendering budget is very responsible.",
+      "question": "Next?",
+      "reaction": "drowsy",
+      "choices": [
+        {
+          "label": "Wake up",
+          "next": "wake-demo",
+          "reaction": "waking"
+        },
+        {
+          "label": "Are you bored?",
+          "next": "bored-demo",
+          "reaction": "bored"
+        }
+      ]
+    },
+    "bored-demo": {
+      "answer": "Only while waiting for another question. Good thing you brought buttons.",
+      "question": "Choose my next task.",
+      "reaction": "bored",
+      "choices": [
+        {
+          "label": "Go searching",
+          "next": "search-demo",
+          "reaction": "searching"
+        },
+        {
+          "label": "Get to work",
+          "next": "working-demo",
+          "reaction": "working"
+        }
+      ]
+    },
+    "scared-demo": {
+      "answer": "Someone whispered “rewrite everything on Friday.” I’m fine. Everything is fine.",
+      "question": "Help me recover?",
+      "reaction": "scared",
+      "choices": [
+        {
+          "label": "Modernize carefully",
+          "next": "legacy",
+          "reaction": "thinking"
+        },
+        {
+          "label": "A comforting laugh",
+          "next": "laugh-demo",
+          "reaction": "laughing"
+        }
+      ]
+    },
+    "angry-demo": {
+      "answer": "Who deployed the duplicate notification? My very small complaint has been filed.",
+      "question": "A constructive next step?",
+      "reaction": "angry",
+      "choices": [
+        {
+          "label": "Handle repeat events",
+          "next": "idempotency",
+          "reaction": "working"
+        },
+        {
+          "label": "Take a breath",
+          "next": "listen-demo",
+          "reaction": "listening"
+        }
+      ]
+    },
+    "shy-demo": {
+      "answer": "Thank you for stopping by. I get a little shy when people notice the tiny gestures.",
+      "question": "What next?",
+      "reaction": "shy",
+      "choices": [
+        {
+          "label": "You’re doing fine",
+          "next": "happy-demo",
+          "reaction": "happy"
+        },
+        {
+          "label": "Back to the person",
+          "next": "about",
+          "reaction": "listening"
+        }
+      ]
+    },
+    "playful-demo": {
+      "answer": "A quick tilt, a suspicious glance and a perfectly unnecessary flourish. That is my design process.",
+      "question": "Next?",
+      "reaction": "playful",
+      "choices": [
+        {
+          "label": "A tiny joke",
+          "next": "jokes",
+          "reaction": "laughing"
+        },
+        {
+          "label": "A useful fact instead",
+          "next": "work",
+          "reaction": "working"
+        }
+      ]
+    },
+    "search-demo": {
+      "answer": "Looking left. Looking right. Found you, and the project section. Investigation complete.",
+      "question": "Where shall we go?",
+      "reaction": "searching",
+      "choices": [
+        {
+          "label": "Projects, please",
+          "next": "work",
+          "reaction": "proud",
+          "section": "work"
+        },
+        {
+          "label": "Think about it",
+          "next": "thinking-demo",
+          "reaction": "thinking"
+        }
+      ]
+    },
+    "thinking-demo": {
+      "answer": "Thinking… in predefined paths. My thoughts are editable JSON, which makes me unusually easy to reason with.",
+      "question": "Want to know more?",
+      "reaction": "thinking",
+      "choices": [
+        {
+          "label": "How you work",
+          "next": "cube-tech",
+          "reaction": "curious"
+        },
+        {
+          "label": "Demonstrate listening",
+          "next": "listen-demo",
+          "reaction": "listening"
+        }
+      ]
+    },
+    "listen-demo": {
+      "answer": "I’m listening to your choice. There’s no text box here; every reply follows a configured path.",
+      "question": "Choose a trail.",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "A professional question",
+          "next": "hero",
+          "reaction": "working"
+        },
+        {
+          "label": "A tiny distraction",
+          "next": "playroom",
+          "reaction": "playful"
+        }
+      ]
+    },
+    "working-demo": {
+      "answer": "Task received: introduce the work, keep the motion brief and stay out of the way. I have an excellent job description.",
+      "question": "Next task?",
+      "reaction": "working",
+      "choices": [
+        {
+          "label": "Show the systems",
+          "next": "work",
+          "reaction": "proud"
+        },
+        {
+          "label": "A quiet break",
+          "next": "sleep-demo",
+          "reaction": "sleeping"
+        }
+      ]
+    },
+    "jokes": {
+      "answer": "My favorite kind of architecture? One with enough room for a cube to sit in the corner.",
+      "question": "Another tiny joke?",
+      "reaction": "laughing",
+      "choices": [
+        {
+          "label": "Debugging joke",
+          "next": "debugging",
+          "reaction": "confused"
+        },
+        {
+          "label": "Rewrite joke",
+          "next": "rewrite-joke",
+          "reaction": "scared"
+        },
+        {
+          "label": "Cube career",
+          "next": "cube-job",
+          "reaction": "proud"
+        }
+      ]
+    },
+    "debugging": {
+      "answer": "I tried rubber-duck debugging. The duck asked why I had no hands. The bug remains under investigation.",
+      "question": "What next?",
+      "reaction": "confused",
+      "choices": [
+        {
+          "label": "Laugh about it",
+          "next": "laugh-demo",
+          "reaction": "laughing"
+        },
+        {
+          "label": "Actual reliability",
+          "next": "failures",
+          "reaction": "working"
+        }
+      ]
+    },
+    "rewrite-joke": {
+      "answer": "“Just a small rewrite,” they said. I rotated 180 degrees and quietly reviewed the migration plan.",
+      "question": "A useful next step?",
+      "reaction": "scared",
+      "choices": [
+        {
+          "label": "Why incremental change?",
+          "next": "rewrite",
+          "reaction": "thinking"
+        },
+        {
+          "label": "More tiny jokes",
+          "next": "jokes",
+          "reaction": "laughing"
+        }
+      ]
+    },
+    "cube-job": {
+      "answer": "Senior Corner Occupant. Responsibilities: look curious, introduce the work, occasionally wave. Compensation: unlimited tasteful accent color.",
+      "question": "Next?",
+      "reaction": "proud",
+      "choices": [
+        {
+          "label": "Your confidence is impressive",
+          "next": "cube-confidence",
+          "reaction": "proud"
+        },
+        {
+          "label": "Get back to work",
+          "next": "working-demo",
+          "reaction": "working"
+        }
+      ]
+    },
+    "cube-confidence": {
+      "answer": "I’m confident about my predefined answers. For the professional details, the actual portfolio is the source. I’m the friendly shortcut.",
+      "question": "Where next?",
+      "reaction": "suspicious",
+      "choices": [
+        {
+          "label": "Professional details",
+          "next": "about",
+          "reaction": "listening"
+        },
+        {
+          "label": "A victory lap",
+          "next": "celebrate",
+          "reaction": "celebrate"
+        }
+      ]
+    },
+    "cube-tech": {
+      "answer": "I’m a procedural 3D avatar rendered through React. My expressions come from an avatar definition; these conversations follow JSON paths. No LLM or chat input runs here.",
+      "question": "Which detail?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "Why so many gestures?",
+          "next": "cube-motion",
+          "reaction": "playful"
+        },
+        {
+          "label": "Why do you move corners?",
+          "next": "cube-corners",
+          "reaction": "searching"
+        },
+        {
+          "label": "Your security policy?",
+          "next": "cube-security",
+          "reaction": "suspicious"
+        }
+      ]
+    },
+    "cube-motion": {
+      "answer": "The original animation patterns become short one-shot gestures. Replies choose a reaction; idle moments shuffle gentler motions. Reduced-motion preferences quiet the automatic movement.",
+      "question": "Try one?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "The mood collection",
+          "next": "moods",
+          "reaction": "excited"
+        },
+        {
+          "label": "Back to the tour",
+          "next": "hero",
+          "reaction": "idle"
+        }
+      ]
+    },
+    "cube-corners": {
+      "answer": "I stay with you while you scroll, holding my corner when it is clear. A slim side gutter gives me space on crowded pages. Corner changes are slower and much less frequent now.",
+      "question": "Where next?",
+      "reaction": "listening",
+      "choices": [
+        {
+          "label": "More cube questions",
+          "next": "cube-tech",
+          "reaction": "curious"
+        },
+        {
+          "label": "Show me the work",
+          "next": "work",
+          "reaction": "working"
+        }
+      ]
+    },
+    "cube-security": {
+      "answer": "No password requests, no text entry, no pretend AI chat. I only follow the choices you click. Very small attack surface. Very large personality.",
+      "question": "What next?",
+      "reaction": "suspicious",
+      "choices": [
+        {
+          "label": "Actual identity architecture",
+          "next": "identity",
+          "reaction": "thinking"
+        },
+        {
+          "label": "A shy thank-you",
+          "next": "shy-demo",
+          "reaction": "shy"
+        }
+      ]
+    },
+    "jealous": {
+      "answer": "Fair choice. That character has a whole frame sequence. I have corners and a questionable sense of humor. We complement each other.",
+      "question": "Truce?",
+      "reaction": "sad",
+      "choices": [
+        {
+          "label": "Both can stay",
+          "next": "celebrate",
+          "reaction": "celebrate"
+        },
+        {
+          "label": "Tell me about the sequence",
+          "next": "outro",
+          "reaction": "curious"
+        }
+      ]
+    },
+    "laugh-demo": {
+      "answer": "A small laugh, then back to being a responsible portfolio guide. Thank you for indulging my cube-shaped nonsense.",
+      "question": "Next?",
+      "reaction": "laughing",
+      "choices": [
+        {
+          "label": "One more joke",
+          "next": "jokes",
+          "reaction": "playful"
+        },
+        {
+          "label": "Back to the tour",
+          "next": "hero",
+          "reaction": "idle"
+        }
+      ]
+    },
+    "celebrate": {
+      "answer": "A small celebration for useful systems and the people who build them. No confetti cleanup required.",
+      "question": "Where next?",
+      "reaction": "celebrate",
+      "choices": [
+        {
+          "label": "Explore the work",
+          "next": "work",
+          "reaction": "proud"
+        },
+        {
+          "label": "Say hello to Renzil",
+          "next": "contact",
+          "reaction": "happy"
+        }
+      ]
+    },
+    "goodbye": {
+      "answer": "Thanks for exploring. The contact links are there when you need them. I’ll be around, quietly keeping an eye on the corners.",
+      "question": "Another visit before you go?",
+      "reaction": "shy",
+      "choices": [
+        {
+          "label": "Back to the beginning",
+          "next": "hero",
+          "reaction": "waking",
+          "section": "hero"
+        },
+        {
+          "label": "One last playful moment",
+          "next": "playroom",
+          "reaction": "playful"
+        }
+      ]
+    },
+    "games": {
+      "answer": "You play as Kyubee. Blobee is the round little opponent, inspired by Strobi. Take turns claiming squares; three in a row wins. You always start.",
+      "question": "Shall we play?",
+      "reaction": "playful",
+      "choices": [
+        {
+          "label": "Take me to the board",
+          "next": "games",
+          "reaction": "excited",
+          "section": "games"
+        },
+        {
+          "label": "Choose a difficulty",
+          "next": "game-modes",
+          "reaction": "thinking"
+        },
+        {
+          "label": "Back to the portfolio",
+          "next": "hero",
+          "reaction": "happy",
+          "section": "portfolio"
+        }
+      ]
+    },
+    "game-modes": {
+      "answer": "Easy is random. Normal takes winning moves and usually blocks you. Hard chooses among its best moves. Pick a mode and I’ll take you to the board.",
+      "question": "How clever should Blobee be?",
+      "reaction": "thinking",
+      "choices": [
+        {
+          "label": "Easy · a little chaos",
+          "next": "games",
+          "reaction": "playful",
+          "section": "games",
+          "difficulty": "easy"
+        },
+        {
+          "label": "Normal · a little strategy",
+          "next": "games",
+          "reaction": "playful",
+          "section": "games",
+          "difficulty": "normal"
+        },
+        {
+          "label": "Hard · think ahead",
+          "next": "games",
+          "reaction": "playful",
+          "section": "games",
+          "difficulty": "hard"
+        }
+      ]
+    },
+    "campaign": {
+      "answer": "A stakeholder describes the campaign’s vibe and message. An AI API designs an HTML template; follow-up instructions or manual tweaks refine it. The goal: remove the engineer handoff from everyday campaign creation.",
+      "question": "What would you like to explore?",
+      "reaction": "curious",
+      "choices": [
+        {
+          "label": "The review workflow",
+          "next": "campaign-review",
+          "reaction": "working"
+        },
+        {
+          "label": "Images and intent checks",
+          "next": "campaign-safety",
+          "reaction": "thinking"
+        },
+        {
+          "label": "The reported impact",
+          "next": "campaign-impact",
+          "reaction": "proud"
+        },
+        {
+          "label": "Open the project & demo",
+          "next": "campaign",
+          "reaction": "excited",
+          "project": "campaign-management"
+        }
+      ]
+    },
+    "campaign-review": {
+      "answer": "Review the template, approve it for test emails, check it with other reviewers, and revise again if needed. Final confirmation stores the campaign with its audience, priority and schedule.",
+      "question": "Try the idea?",
+      "reaction": "curious",
+      "choices": [
+        {
+          "label": "Open the campaign walkthrough",
+          "next": "campaign",
+          "reaction": "excited",
+          "project": "campaign-management"
+        },
+        {
+          "label": "Back to the overview",
+          "next": "campaign",
+          "reaction": "listening"
+        }
+      ]
+    },
+    "campaign-safety": {
+      "answer": "ImageKit provides publicly accessible images over S3-backed storage. AI checks content intent and blocks hurtful or unacceptable requests under the tool’s infosec rules, explaining why.",
+      "question": "Next stop?",
+      "reaction": "curious",
+      "choices": [
+        {
+          "label": "Review and confirmation",
+          "next": "campaign-review",
+          "reaction": "working"
+        },
+        {
+          "label": "Reported outcomes",
+          "next": "campaign-impact",
+          "reaction": "happy"
+        }
+      ]
+    },
+    "campaign-impact": {
+      "answer": "Renzil reports campaigns reaching 350,000+ people across multiple campaigns and a 14% increase in clicks or interaction after deployment. These are self-reported figures; the percentage basis has not been specified.",
+      "question": "Want a closer look?",
+      "reaction": "curious",
+      "choices": [
+        {
+          "label": "Open the project",
+          "next": "campaign",
+          "reaction": "proud",
+          "project": "campaign-management"
+        },
+        {
+          "label": "Explore another system",
+          "next": "work",
+          "reaction": "curious"
+        }
+      ]
+    }
+  }
+}

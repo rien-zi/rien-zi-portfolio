@@ -5,56 +5,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- First paint stays covered until React's language loader is mounted. -->
+    <style>
+      html { background: #1d1f1e; }
+      html[data-theme="light"] { background: #c5c5c5; }
+      #bootstrap-loader { display: none; }
+      html[data-app-booting] #root { visibility: hidden; }
+      html[data-app-booting] #bootstrap-loader { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; background: #1d1f1e; color: #fff; font-family: system-ui, sans-serif; }
+      html[data-theme="light"][data-app-booting] #bootstrap-loader { background: #c5c5c5; color: #202a3d; }
+      #bootstrap-loader .boot-greeting { display: flex; align-items: center; gap: 12px; font-size: clamp(2.25rem, 4.75vw, 6rem); font-weight: 300; }
+      #bootstrap-loader .boot-dot { width: 8px; height: 8px; border-radius: 50%; background: #d63a45; }
+      html[data-theme="light"] #bootstrap-loader .boot-dot { background: #315cff; }
+      #bootstrap-loader .boot-cue { position: absolute; left: 24px; bottom: 24px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
+      @media (max-width: 600px) { #bootstrap-loader .boot-cue { top: 24px; bottom: auto; } }
+    </style>
+    <script>
+      document.documentElement.setAttribute('data-app-booting', '');
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'light' || theme === 'dark') document.documentElement.setAttribute('data-theme', theme);
+      } catch { /* Storage may be unavailable; use the default theme. */ }
+      window.__portfolioBootTimer = setTimeout(() => {
+        document.documentElement.removeAttribute('data-app-booting');
+      }, 12000);
+    </script>
+
     <!-- Primary SEO -->
     <title>
-      Renzil Rodrigues — Technical Architect & AI Automation Specialist
+      Renzil Rodrigues — Technical Architect & Systems Builder
     </title>
     <meta
       name="description"
-      content="Driving ₹10Cr+ annual savings through large-scale backend engineering, NLP/ML models, and enterprise automation at Swiggy."
+      content="Renzil Rodrigues builds reliable operational software, backend integrations, automation and applied AI. Explore selected projects and interactive walkthroughs."
     />
-    <link rel="canonical" href="https://rien-zi.irisaut.space/" />
+    <link rel="canonical" href="https://rien-zi.aexis.space/" />
 
     <!-- Favicons / PWA hooks -->
     <link rel="icon" type="image/svg+xml" href="/rz.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <!-- <link rel="manifest" href="/site.webmanifest" /> -->
-    <meta name="theme-color" content="#0f172a" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="apple-mobile-web-app-title" content="rien-zi" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#1d1f1e" />
 
     <!-- Open Graph (LinkedIn, Slack, etc.) -->
     <meta
       property="og:title"
-      content="Renzil Rodrigues — Technical Architect & AI Automation Specialist"
+      content="Renzil Rodrigues — Technical Architect & Systems Builder"
     />
     <meta
       property="og:description"
-      content="Driving ₹10Cr+ annual savings through large-scale backend engineering, NLP/ML models, and enterprise automation at Swiggy."
+      content="Renzil Rodrigues builds reliable operational software, backend integrations, automation and applied AI. Explore selected projects and interactive walkthroughs."
     />
-    <meta property="og:url" content="https://rien-zi.irisaut.space/" />
+    <meta property="og:url" content="https://rien-zi.aexis.space/" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://rien-zi.irisaut.space/og.png" />
+    <meta property="og:image" content="https://rien-zi.aexis.space/og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_IN" />
     <meta property="og:site_name" content="Renzil Rodrigues Portfolio" />
     <meta
       property="og:image:alt"
-      content="Renzil Rodrigues — Technical Architect & AI Automation Specialist"
+      content="Renzil Rodrigues — Technical Architect & Systems Builder"
     />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Renzil Rodrigues — Technical Architect & AI Automation Specialist"
+      content="Renzil Rodrigues — Technical Architect & Systems Builder"
     />
     <meta
       name="twitter:description"
-      content="Driving ₹10Cr+ annual savings through large-scale backend engineering, NLP/ML models, and enterprise automation at Swiggy."
+      content="Renzil Rodrigues builds reliable operational software, backend integrations, automation and applied AI. Explore selected projects and interactive walkthroughs."
     />
-    <meta name="twitter:image" content="https://rien-zi.irisaut.space/og.png" />
+    <meta name="twitter:image" content="https://rien-zi.aexis.space/og.png" />
     <!-- <meta name="twitter:site" content="@<your_handle_optional>" /> -->
     <!-- <meta name="twitter:creator" content="@<your_handle_optional>" /> -->
 
@@ -66,14 +94,14 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Renzil Rodrigues",
-        "url": "https://rien-zi.irisaut.space/",
-        "image": "https://rien-zi.irisaut.space/og.png",
-        "jobTitle": "Technical Architect & AI Automation Specialist",
+        "url": "https://rien-zi.aexis.space/",
+        "image": "https://rien-zi.aexis.space/og.png",
+        "jobTitle": "Technical Architect & Systems Builder",
         "worksFor": {
           "@type": "Organization",
           "name": "Swiggy"
         },
-        "description": "Driving ₹10Cr+ annual savings through large-scale backend engineering, NLP/ML models, and enterprise automation at Swiggy.",
+        "description": "Renzil Rodrigues builds reliable operational software, backend integrations, automation and applied AI. Explore selected projects and interactive walkthroughs.",
         "sameAs": [
           "https://www.linkedin.com/in/rien-zi",
           "https://github.com/rien-zi"
@@ -85,6 +113,7 @@
   </head>
 
   <body>
+    <div id="bootstrap-loader" aria-hidden="true"><div class="boot-greeting"><span class="boot-dot"></span><span>Hello</span></div><span class="boot-cue">Loading web portfolio…</span></div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

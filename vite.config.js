@@ -1,18 +1,9 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { portfolioSeo } from './scripts/portfolioSeo.mjs'
+import tailwindcss from '@tailwindcss/vite'
+import { avatarCsp } from './scripts/avatarCsp.mjs'
 
 export default defineConfig({
-  plugins: [react()],
-  base: "/",
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          three: ["three"],
-          vendor: ["react", "react-dom"],
-          router: ["react-router-dom"],
-        },
-      },
-    },
-  },
-});
+  plugins: [avatarCsp(), react(), tailwindcss(), portfolioSeo()],
+})

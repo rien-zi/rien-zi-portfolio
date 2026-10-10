@@ -1,24 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://rien-zi.irisaut.space/</loc>
-    <lastmod>2025-09-09</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://rien-zi.irisaut.space/#projects</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rien-zi.irisaut.space/#skills</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://rien-zi.irisaut.space/#career</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rien-zi.irisaut.space/#contact</loc>
-    <priority>0.7</priority>
-  </url>
+  <url><loc>https://rien-zi.aexis.space/</loc></url>
+  <url><loc>https://rien-zi.aexis.space/work/resolute</loc></url>
+  <url><loc>https://rien-zi.aexis.space/work/middleware</loc></url>
+  <url><loc>https://rien-zi.aexis.space/work/document-intelligence</loc></url>
+  <url><loc>https://rien-zi.aexis.space/work/campaign-management</loc></url>
+  <url><loc>https://rien-zi.aexis.space/games</loc></url>
 </urlset>

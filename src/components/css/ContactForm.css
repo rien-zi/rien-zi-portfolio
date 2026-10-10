@@ -1,0 +1,17 @@
+.contact-form { margin-top: 42px; padding: 28px; border: 1px solid var(--nav-border); border-radius: 20px; background: var(--project-surface); }
+.contact-form > p { color: var(--muted); font-size: 12px; line-height: 1.8; }
+.contact-form > label, .contact-form legend { display: block; margin: 20px 0 8px; font-size: 12px; color: var(--fg); }
+.contact-form label span { color: var(--muted); }
+.contact-form > input, .contact-form textarea { width: 100%; min-height: 44px; padding: 12px; border: 1px solid var(--nav-border); border-radius: 8px; background: var(--bg); color: var(--fg); font: inherit; font-size: 13px; }
+.contact-form textarea { resize: vertical; }
+.contact-form fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+.contact-purposes { display: flex; flex-wrap: wrap; gap: 8px; }
+.contact-purposes label { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 12px; border: 1px solid var(--nav-border); border-radius: 12px; font-size: 11px; cursor: pointer; }
+.contact-purposes input { accent-color: var(--accent-ink, var(--accent)); }
+.contact-purposes .is-selected { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, var(--bg)); }
+.contact-form .contact-quirk { color: var(--accent-ink, var(--accent)); }
+.contact-form button { min-height: 48px; padding: 12px 18px; border: 1px solid var(--accent); border-radius: 999px; background: var(--bg); color: var(--fg); font: inherit; font-size: 13px; cursor: pointer; }
+.contact-form :is(input, textarea, button, a):focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.contact-form ::placeholder { color: var(--muted); opacity: 1; }
+@media (max-width: 760px) { .contact-form { padding: 18px; } .contact-purposes { display: grid; } }
+@media (max-width: 760px) { .contact-form > input, .contact-form textarea { font-size: 16px; } }

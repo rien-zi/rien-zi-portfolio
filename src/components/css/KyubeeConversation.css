@@ -1,0 +1,24 @@
+.kyubee-conversation { position: fixed; z-index: 900; width: min(320px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow: auto; padding: 20px; border: 1px solid var(--nav-border); border-radius: 20px 20px 20px 6px; background: var(--surface); color: var(--fg); box-shadow: 0 16px 50px rgb(0 0 0 / .12); }
+.kyubee-conversation header { display: flex; justify-content: space-between; align-items: center; font-size: 12px; letter-spacing: .05em; color: var(--muted); }
+.kyubee-conversation header span span { color: var(--accent-ink, var(--accent)); }
+.kyubee-conversation header button { width: 32px; height: 32px; font-size: 23px; }
+.kyubee-conversation button { color: var(--fg); background: transparent; border: 0; cursor: pointer; }
+.kyubee-conversation p { margin: 16px 0; font-size: 14px; line-height: 1.65; }
+.kyubee-conversation .kyubee-translation { color: var(--muted); font-size: 12px; }
+.kyubee-choices { display: grid; gap: 6px; }
+.kyubee-choices button { display: flex; justify-content: space-between; gap: 12px; padding: 10px 12px; text-align: left; border: 1px solid var(--nav-border); border-radius: 9px; font-size: 12px; }
+.kyubee-choices button:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.kyubee-choices button span { color: var(--accent-ink, var(--accent)); }
+.kyubee-conversation button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.kyubee-conversation .kyubee-question { color: var(--muted); font-size: 12px; margin: 0 0 12px; }
+.kyubee-conversation-footer { display: flex; flex-wrap: wrap; align-items: start; gap: 16px; padding-top: 16px; font-size: 11px; color: var(--muted); }
+.kyubee-conversation-footer > button { padding: 3px 0; color: var(--muted); }
+.kyubee-conversation-footer details { flex: 1; }
+.kyubee-conversation-footer summary { padding: 3px 0; cursor: pointer; }
+.kyubee-conversation-footer nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.kyubee-conversation-footer nav button { padding: 7px 10px; border: 1px solid var(--nav-border); border-radius: 999px; font-size: 10px; }
+.kyubee-conversation-footer summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.kyubee-section-link { padding-top: 16px; margin-top: 16px; border-top: 1px solid var(--nav-border); }
+.kyubee-section-link p { font-size: 11px; margin: 0 0 8px; color: var(--muted); }
+.kyubee-section-link button { display: flex; justify-content: space-between; width: 100%; padding: 10px 12px; font-size: 12px; border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); border-radius: 9px; background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.kyubee-section-link button span { color: var(--accent-ink, var(--accent)); }

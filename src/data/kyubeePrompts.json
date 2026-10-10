@@ -1,0 +1,138 @@
+{
+  "about": [
+    {
+      "label": "Meet the maker",
+      "target": "about"
+    },
+    {
+      "label": "A little backstory?",
+      "target": "about"
+    }
+  ],
+  "career": [
+    {
+      "label": "Career detour?",
+      "target": "career"
+    },
+    {
+      "label": "How he got here",
+      "target": "career"
+    }
+  ],
+  "work": [
+    {
+      "label": "Worth checking out",
+      "target": "work"
+    },
+    {
+      "label": "Pick a system?",
+      "target": "project-menu"
+    }
+  ],
+  "impact": [
+    {
+      "label": "Small wins, big scale",
+      "target": "impact"
+    },
+    {
+      "label": "Numbers with context",
+      "target": "impact"
+    }
+  ],
+  "skills": [
+    {
+      "label": "Tools of the trade",
+      "target": "skills"
+    },
+    {
+      "label": "What can he build?",
+      "target": "skills"
+    }
+  ],
+  "approach": [
+    {
+      "label": "How he thinks",
+      "target": "approach"
+    },
+    {
+      "label": "Inside the process",
+      "target": "approach"
+    }
+  ],
+  "education": [
+    {
+      "label": "Still learning",
+      "target": "education"
+    },
+    {
+      "label": "A curious mind",
+      "target": "education"
+    }
+  ],
+  "contact": [
+    {
+      "label": "He insisted…",
+      "target": "outro"
+    },
+    {
+      "label": "Meet my roommate",
+      "target": "outro"
+    },
+    {
+      "label": "Let’s connect?",
+      "target": "contact"
+    }
+  ],
+  "games": [
+    {
+      "label": "Your move, captain",
+      "target": "games"
+    },
+    {
+      "label": "A tiny rivalry",
+      "target": "games"
+    }
+  ],
+  "project:resolute": [
+    {
+      "label": "Inside Resolute",
+      "target": "resolute"
+    }
+  ],
+  "project:middleware": [
+    {
+      "label": "Queues have stories",
+      "target": "middleware"
+    }
+  ],
+  "project:document-intelligence": [
+    {
+      "label": "Show me the sources",
+      "target": "rag"
+    }
+  ],
+  "project:campaign-management": [
+    {
+      "label": "From brief to inbox",
+      "target": "campaign"
+    }
+  ],
+  "invitations": [
+    {
+      "label": "I’m bored. Game?",
+      "target": "games"
+    },
+    {
+      "label": "Fancy a tiny rivalry?",
+      "target": "games"
+    },
+    {
+      "label": "Three in a row?",
+      "target": "games"
+    },
+    {
+      "label": "Play break, anyone?",
+      "target": "games"
+    }
+  ]
+}

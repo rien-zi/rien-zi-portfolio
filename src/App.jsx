@@ -1,140 +1,42 @@
-import React, { useEffect, useState, Suspense, useRef } from "react";
-import { Outlet } from "react-router-dom";
+import { Fragment, useCallback, useRef, useState } from "react";
+import usePageMetadata from "./components/scripts/usePageMetadata";
+import usePortfolioLoop from "./components/scripts/usePortfolioLoop";
+import ProjectPage from "./components/scripts/ProjectPage";
+import Cubee from "./components/scripts/Cubee";
+import GamesSection from "./components/scripts/GamesSection";
+import usePageNavigation from "./components/scripts/usePageNavigation";
+import Navbar from "./components/scripts/Navbar";
+import CleanHero from "./components/scripts/CleanHero";
+import CustomCursor from "./components/scripts/CustomCursor";
+import Loader from "./components/scripts/Loader";
+import PortfolioContent from "./components/scripts/PortfolioContent";
 
-const Navbar = React.lazy(() => import("./components/navbar/Navbar"));
-const Hero = React.lazy(() => import("./components/hero/Hero"));
-const Projects = React.lazy(() => import("./components/projects/Projects"));
-const Skills = React.lazy(() => import("./components/skills/Skills"));
-const Career = React.lazy(() => import("./components/career/Career"));
-const Contact = React.lazy(() => import("./components/contact/Contact"));
-
-// import NetworkCanvas from "./components/rss/NetworkCanvas";
-
-const ThreeParticleCanvas = React.lazy(
-  () => import("./components/rss/ThreeParticleCanvas"),
-);
-
-function App() {
-  const hasMountedCanvas = useRef(false);
-
-  const [isDesktop, setIsDesktop] = useState(true);
-
-  const [isLowPower] = useState(() => {
-    if (typeof navigator === "undefined") return false;
-    return (navigator.hardwareConcurrency || 4) <= 4;
-  });
-
-  const [showCanvas, setShowCanvas] = useState(false);
-
-  const shouldRenderCanvas =
-    isDesktop && !isLowPower && (showCanvas || hasMountedCanvas.current);
-
-  useEffect(() => {
-    if (shouldRenderCanvas) {
-      hasMountedCanvas.current = true;
-    }
-  }, [shouldRenderCanvas]);
-
-  useEffect(() => {
-    if (isLowPower) return; // extra safety
-
-    let triggered = false;
-
-    const trigger = () => {
-      if (triggered) return;
-      triggered = true;
-
-      // defer slightly to avoid blocking interaction frame
-      requestAnimationFrame(() => {
-        setShowCanvas(true);
-      });
-
-      cleanup();
-    };
-
-    const cleanup = () => {
-      window.removeEventListener("mousemove", trigger);
-      window.removeEventListener("scroll", trigger);
-      window.removeEventListener("touchstart", trigger);
-    };
-
-    window.addEventListener("mousemove", trigger, { passive: true });
-    window.addEventListener("scroll", trigger, { passive: true });
-    window.addEventListener("touchstart", trigger, { passive: true });
-
-    return cleanup;
-  }, [isLowPower]);
-
-  useEffect(() => {
-    let raf;
-    const check = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        setIsDesktop(window.innerWidth >= 768);
-      });
-    };
-
-    check();
-    window.addEventListener("resize", check);
-
-    return () => {
-      window.removeEventListener("resize", check);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
+export default function App() {
+  const { page, gamePage, projectId, difficulty } = usePageNavigation();
+  const [loading, setLoading] = useState(true);
+  usePageMetadata(page);
+  const cycleRef = useRef(null);
+  const beforeRef = useRef(null);
+  const afterRef = useRef(null);
+  const loop = usePortfolioLoop(page, !loading, cycleRef, beforeRef, afterRef);
+  const finishLoading = useCallback(() => setLoading(false), []);
   return (
-    <div className="relative scroll-smooth">
-      {/* 🌐 GLOBAL CANVAS */}
-      {shouldRenderCanvas && (
-        <div className="fixed inset-0 z-0">
-          <Suspense fallback={null}>
-            <ThreeParticleCanvas />
-          </Suspense>
-        </div>
-      )}
+    <>
+      <CustomCursor />
+      <Navbar ready={!loading} gamePage={gamePage} projectPage={Boolean(projectId)} loop={loop} />
 
-      {/* 🧱 CONTENT */}
-      <div className="relative z-10">
-        <Suspense fallback={null}>
-          <Navbar />
-        </Suspense>
-        <main>
-          <section id="hero">
-            <Suspense fallback={null}>
-              <Hero />
-            </Suspense>
-          </section>
-
-          {/* Placeholder for next sections */}
-          <section id="projects" className="min-h-screen p-10">
-            <Suspense fallback={null}>
-              <Projects />
-            </Suspense>
-          </section>
-
-          <section id="skills" className="min-h-screen p-10">
-            <Suspense fallback={null}>
-              <Skills />
-            </Suspense>
-          </section>
-
-          <section id="career" className="min-h-screen p-10">
-            <Suspense fallback={null}>
-              <Career />
-            </Suspense>
-          </section>
-
-          <section id="contact" className="min-h-screen p-10">
-            <Suspense fallback={null}>
-              <Contact />
-            </Suspense>
-          </section>
-          <Outlet />
-        </main>
-      </div>
-    </div>
+      <a className="skip-link" href="#main-content">Skip to content</a>
+      <main id="main-content" tabIndex={-1} inert={loading} aria-hidden={loading ? true : undefined}>
+        {projectId ? <Fragment key={`project:${projectId}`}><ProjectPage key={projectId} projectId={projectId} /><Cubee ready={!loading} page={page} /></Fragment> : gamePage ? <div key="games" className="game-page">
+          <GamesSection initialDifficulty={difficulty} />
+          <Cubee ready={!loading} page="games" />
+        </div> : <div key="portfolio" className="portfolio-page">
+          <div ref={beforeRef} className="portfolio-replica" aria-hidden="true" />
+          <div ref={cycleRef} data-portfolio-cycle><CleanHero ready={!loading} /><PortfolioContent /></div>
+          <div ref={afterRef} className="portfolio-replica" aria-hidden="true" />
+        </div>}
+      </main>
+      {loading && <Loader onDone={finishLoading} />}
+    </>
   );
 }
-
-export default App;

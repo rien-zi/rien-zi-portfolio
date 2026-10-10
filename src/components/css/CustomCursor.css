@@ -1,0 +1,6 @@
+.custom-cursor { position: fixed; width: 64px; height: 64px; left: 0; top: 0; margin: -32px 0 0 -32px; display: grid; place-items: center; border: 2px solid #fff; border-radius: 50%; background: transparent; opacity: 0; pointer-events: none; z-index: 9999; mix-blend-mode: difference; will-change: transform; }
+.custom-cursor span { width: 14px; height: 14px; border-radius: 50%; background: #fff; }
+.custom-cursor.is-highlighted { background: #fff; }
+.custom-cursor.is-highlighted span { opacity: 0; }
+@media (hover: hover) and (pointer: fine) { html.has-custom-cursor, html.has-custom-cursor * { cursor: none !important; } }
+@media (pointer: coarse), (hover: none) { .custom-cursor { display: none; } }
